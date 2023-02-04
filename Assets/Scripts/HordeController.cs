@@ -1,8 +1,9 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.Pool;
+using Random = UnityEngine.Random;
 
 namespace PlayerHorde
 {
@@ -16,14 +17,17 @@ namespace PlayerHorde
 
     public class HordeController : MonoBehaviour
     {
-        [field: SerializeField]
-        private SerializableHordeIntTypeDictionary StartingHordeMembersCount;
+        [field: SerializeField] protected SerializableHordeIntTypeDictionary StartingHordeMembersCount;
         [SerializeField] 
         private Spawn[] spawnables;
-        private static Dictionary<Spawn, ObjectPool<GameObject>> _goPools;
+
+        protected static Dictionary<Spawn, ObjectPool<GameObject>> _goPools;
         private static readonly Vector3 DefaultGoSpawn = new Vector3(-100, -100, 0);
-        private Dictionary<HordeMemberType, Queue<GameObject>> _activeStacks;
-        private void Start()
+        protected Dictionary<HordeMemberType, Queue<GameObject>> _activeStacks;
+        [SerializeField] private Vector2 maxSpawnDistance = Vector3.zero;
+        [SerializeField] private UnityEvent OnAttack;
+
+        public virtual void Start()
         {
             _goPools = new Dictionary<Spawn, ObjectPool<GameObject>>();
             _activeStacks = new Dictionary<HordeMemberType, Queue<GameObject>>();
@@ -37,10 +41,10 @@ namespace PlayerHorde
             }
         }
 
-        public void Spawn(HordeMemberType type)
+        public GameObject Spawn(HordeMemberType type)
         {
             var spawn = Array.Find(spawnables, (spawn) => spawn.type == type);
-            if (spawn == null) return;
+            if (spawn == null) return null;
             if (!_goPools.ContainsKey(spawn))
             {
                 var pool = new ObjectPool<GameObject>(
@@ -54,6 +58,7 @@ namespace PlayerHorde
             var actives = _activeStacks[type];
             actives.Enqueue(unit);
             unit.SetActive(true);
+            return unit;
         }
         public void DestroyByType(HordeMemberType type)
         {
@@ -65,10 +70,13 @@ namespace PlayerHorde
 
         private void OnTakeGOFromPool(GameObject go)
         {
-            go.transform.position = transform.position;
+            var randX = Random.Range(-maxSpawnDistance.x, maxSpawnDistance.x);
+            var randZ = Random.Range(-maxSpawnDistance.y, maxSpawnDistance.y);
+            var offset = new Vector3(randX, 0, randZ);
+            go.transform.position = transform.position + offset;
         }
         
-        private static void OnReleaseGOToPool(GameObject go)
+        private void OnReleaseGOToPool(GameObject go)
         {
             go.transform.position = DefaultGoSpawn;
             go.SetActive(false);

@@ -1,16 +1,17 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class MinionNavigation : MonoBehaviour
+public class EnemyNavigation : MonoBehaviour
 {
     private NavMeshAgent _navMeshAgent;
     [field: SerializeField] public Transform Followtransform { get; set; }
     [field: SerializeField] public float MinDistance { get; set; } = 5f;
     [field: SerializeField] public string PlayerTag { get; set; } = "Player";
-
-    void Start()
+    [field: SerializeField] public EnemyState currentState = EnemyState.Seeking;
+    void Awake()
     {
         var playerGo = GameObject.FindGameObjectWithTag(PlayerTag);
         Followtransform = playerGo.GetComponent<Transform>();
@@ -20,9 +21,8 @@ public class MinionNavigation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Followtransform == null) return;
-        var destination = Followtransform.position;
-        _navMeshAgent.isStopped = Vector3.Distance(transform.position, destination) <= MinDistance;
-        _navMeshAgent.destination = destination;
+        if (currentState != EnemyState.Attacking) return;
+        _navMeshAgent.isStopped = false;
+        _navMeshAgent.destination = Followtransform.position;
     }
 }
