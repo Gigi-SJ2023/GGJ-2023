@@ -11,10 +11,10 @@ public class EnemyHordeController: HordeController
         var aggro = gameObject.GetComponent<EnemyAggro>();
         var enemyNavigations = new List<EnemyNavigation>();
         _goPools = new Dictionary<Spawn, ObjectPool<GameObject>>();
-        _activeStacks = new Dictionary<HordeMemberType, Queue<GameObject>>();
+        ActiveQueue = new Dictionary<HordeMemberType, Queue<GameObject>>();
         foreach(var member in StartingHordeMembersCount)
         {
-            _activeStacks.Add(member.Key, new Queue<GameObject>());
+            ActiveQueue.Add(member.Key, new Queue<GameObject>());
             for (var i = 0; i < member.Value; i++)
             {
                 var go =Spawn(member.Key);

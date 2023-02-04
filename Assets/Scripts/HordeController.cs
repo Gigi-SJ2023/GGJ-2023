@@ -23,17 +23,16 @@ namespace PlayerHorde
 
         protected static Dictionary<Spawn, ObjectPool<GameObject>> _goPools;
         private static readonly Vector3 DefaultGoSpawn = new Vector3(-100, -100, 0);
-        protected Dictionary<HordeMemberType, Queue<GameObject>> _activeStacks;
+        protected Dictionary<HordeMemberType, Queue<GameObject>> ActiveQueue;
         [SerializeField] private Vector2 maxSpawnDistance = Vector3.zero;
-        [SerializeField] private UnityEvent OnAttack;
 
         public virtual void Start()
         {
             _goPools = new Dictionary<Spawn, ObjectPool<GameObject>>();
-            _activeStacks = new Dictionary<HordeMemberType, Queue<GameObject>>();
+            ActiveQueue = new Dictionary<HordeMemberType, Queue<GameObject>>();
             foreach(var member in StartingHordeMembersCount)
             {
-                _activeStacks.Add(member.Key, new Queue<GameObject>());
+                ActiveQueue.Add(member.Key, new Queue<GameObject>());
                 for (var i = 0; i < member.Value; i++)
                 {
                     Spawn(member.Key);
@@ -55,14 +54,14 @@ namespace PlayerHorde
                 _goPools.Add(spawn, pool);
             }
             var unit = _goPools[spawn].Get();
-            var actives = _activeStacks[type];
+            var actives = ActiveQueue[type];
             actives.Enqueue(unit);
             unit.SetActive(true);
             return unit;
         }
         public void DestroyByType(HordeMemberType type)
         {
-            var go = _activeStacks[type].Dequeue();
+            var go = ActiveQueue[type].Dequeue();
             var spawn = Array.Find(spawnables, (spawn) => spawn.type == type);
             if (spawn == null || go == null) return;
             _goPools[spawn].Release(go);
