@@ -627,6 +627,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4f2bed9e9ff45484990bd0d3bb28c0a9, type: 3}
+--- !u!1 &3531069343566142341 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3525619779842208569, guid: 4f2bed9e9ff45484990bd0d3bb28c0a9, type: 3}
+  m_PrefabInstance: {fileID: 138877520859490492}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &3531069343566142345 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3525619779842208565, guid: 4f2bed9e9ff45484990bd0d3bb28c0a9, type: 3}
@@ -639,6 +644,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3531069343566142345}
     m_Modifications:
+    - target: {fileID: 28426229243672032, guid: 10f517b35cc72e64f9347741199d35cb, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 3531069343566142341}
     - target: {fileID: 28426229243672037, guid: 10f517b35cc72e64f9347741199d35cb, type: 3}
       propertyPath: m_Name
       value: HordeWaypoint

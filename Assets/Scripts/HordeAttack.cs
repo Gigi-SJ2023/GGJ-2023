@@ -8,7 +8,7 @@ namespace PlayerHorde
         private HordeMemberType HordeType { get; set; } = HordeMemberType.Carrot;
         [field: SerializeField] 
         public float TickDuration { get; set; } = 5;
-        public int DamagePerUnit { get; set; } = 10;
+        public int DamagePerUnit { get; set; } = 0;
         public int Unit { get; set; } = 1;
         [field: SerializeField] 
         private string enemyTag = "enemy";
@@ -47,7 +47,7 @@ namespace PlayerHorde
             state = EnemyState.Attacking;
         }
 
-        public int GetDamage()
+        public virtual int GetDamage()
         {
             return DamagePerUnit * Unit;
         }

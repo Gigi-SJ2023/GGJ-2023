@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1889624950154540201}
-  - component: {fileID: 1348997636732183931}
   - component: {fileID: 3693997334037591378}
+  - component: {fileID: 2310232727888195475}
   m_Layer: 0
   m_Name: Attack
   m_TagString: Untagged
@@ -33,24 +33,6 @@ Transform:
   m_Father: {fileID: 4913547745088490151}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1348997636732183931
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1446009436659741971}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d358217006b4854b260e90c76da9f3d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  <HordeType>k__BackingField: 4
-  <TickDuration>k__BackingField: 5
-  enemyTag: playerhittable
-  wallLayerMask:
-    serializedVersion: 2
-    m_Bits: 8
 --- !u!135 &3693997334037591378
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -64,6 +46,25 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 10
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2310232727888195475
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1446009436659741971}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2c589b92c8748b3b41743e60888a866, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <HordeType>k__BackingField: 4
+  <TickDuration>k__BackingField: 5
+  enemyTag: playerhittable
+  wallLayerMask:
+    serializedVersion: 2
+    m_Bits: 8
+  stats: {fileID: 11400000, guid: 41e09786bab5e764e81a1f9c4a1c739c, type: 2}
 --- !u!1 &4913547745088490149
 GameObject:
   m_ObjectHideFlags: 0
@@ -76,14 +77,15 @@ GameObject:
   - component: {fileID: 369416494307899123}
   - component: {fileID: 8129773212931170832}
   - component: {fileID: 2342077609527200756}
-  - component: {fileID: 2315653596499326883}
   - component: {fileID: 1670409430561670697}
   - component: {fileID: 1380670058223736597}
   - component: {fileID: 1380670058223736598}
   - component: {fileID: 1380670058223736605}
   - component: {fileID: 1380670058223736604}
+  - component: {fileID: -5455958184877519325}
+  - component: {fileID: 7751383193990122384}
   m_Layer: 0
-  m_Name: EnemyHorde
+  m_Name: Roberto
   m_TagString: enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -116,8 +118,8 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 10
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Radius: 4
+  m_Center: {x: 0, y: -0.5, z: 0}
 --- !u!195 &8129773212931170832
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -159,33 +161,6 @@ MonoBehaviour:
   <PlayerTag>k__BackingField: Player
   <Followtransform>k__BackingField: {fileID: 0}
   navigation: {fileID: 0}
---- !u!114 &2315653596499326883
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4913547745088490149}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0ebabc0dacda76438a01a4364c3b98f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  onDestroyByType:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: PlayerHorde.HordeController, Assembly-CSharp
-        m_MethodName: DestroyByType
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!135 &1670409430561670697
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -235,7 +210,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4913547745088490149}
-  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &1380670058223736604
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -278,3 +253,32 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &-5455958184877519325
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4913547745088490149}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0c58f15e3f455b428642d86b6788eac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <Followtransform>k__BackingField: {fileID: 0}
+  <MinDistance>k__BackingField: 5
+  <PlayerTag>k__BackingField: Player
+  currentState: 0
+--- !u!114 &7751383193990122384
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4913547745088490149}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a777bbd0af124f78adef4bd11d3bb4d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stats: {fileID: 11400000, guid: 41e09786bab5e764e81a1f9c4a1c739c, type: 2}
