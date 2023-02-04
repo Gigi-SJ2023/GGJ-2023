@@ -12,6 +12,7 @@ public enum HumanType
 [CreateAssetMenu(fileName = "Spawn", menuName = "Humans/Stats")]
 public class HumanStats : ScriptableObject
 {
+    public float TickDuration;
     public int Health;
     public int AttackBonus;
     public int Speed;
