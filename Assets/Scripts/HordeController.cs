@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public enum HordeMemberType
@@ -12,7 +9,4 @@ public enum HordeMemberType
 }
 public class HordeController : MonoBehaviour
 {
-    public SerializableHordeTypeDictionary HordeMembers;
-    public SerializableHordeTypeDictionary HordeMembersDamage;
-
 }
