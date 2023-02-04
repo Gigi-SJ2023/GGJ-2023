@@ -45,6 +45,16 @@ namespace PlayerHorde
             
         }
 
+        public void AddMemberToHorde(HordeMemberType type)
+        {
+            if(!hordeMembersCount.TryAdd(type, 1))
+            {
+                hordeMembersCount[type] = 1;
+            }
+            onUpdateMember.Invoke(type, hordeMembersCount[type]);
+            Spawn(type);
+        }
+
         protected GameObject Spawn(HordeMemberType type)
         {
             var spawn = Array.Find(spawnables, (spawn) => spawn.type == type);
