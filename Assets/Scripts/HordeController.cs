@@ -16,7 +16,6 @@ namespace PlayerHorde
         Onion,
         Human
     }
-    [RequireComponent(typeof(HealthGroup))]
     public class HordeController : MonoBehaviour
     {
         [field: SerializeField] 

@@ -54,7 +54,6 @@ namespace PlayerHorde
 
         private void ApplyDamage()
         {
-            Debug.Log("Applying damage");
             _target?.Damage(GetDamage());
             elapsed = 0;
         }
