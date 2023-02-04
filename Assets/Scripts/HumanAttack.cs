@@ -8,7 +8,6 @@ public class HumanAttack : HordeAttack
 
     public override int GetDamage()
     {
-        Debug.Log(stats.GetDamage());
         return stats.GetDamage();
     }
 }
