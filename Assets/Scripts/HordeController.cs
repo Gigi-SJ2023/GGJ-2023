@@ -22,13 +22,14 @@ namespace PlayerHorde
         private Spawn[] spawnables;
         private static Dictionary<Spawn, ObjectPool<GameObject>> _goPools;
         private static readonly Vector3 DefaultGoSpawn = new Vector3(-100, -100, 0);
-        public GameObject playerGO;
         private Dictionary<HordeMemberType, Queue<GameObject>> _activeStacks;
         private void Start()
         {
             _goPools = new Dictionary<Spawn, ObjectPool<GameObject>>();
+            _activeStacks = new Dictionary<HordeMemberType, Queue<GameObject>>();
             foreach(var member in StartingHordeMembersCount)
             {
+                _activeStacks.Add(member.Key, new Queue<GameObject>());
                 for (var i = 0; i < member.Value; i++)
                 {
                     Spawn(member.Key);
@@ -52,11 +53,8 @@ namespace PlayerHorde
             var unit = _goPools[spawn].Get();
             var actives = _activeStacks[type];
             actives.Enqueue(unit);
-            var navigation = unit.GetComponent<MinionNavigation>();
-            navigation.Playertransform = playerGO.transform;
             unit.SetActive(true);
         }
-
         public void DestroyByType(HordeMemberType type)
         {
             var go = _activeStacks[type].Dequeue();

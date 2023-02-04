@@ -158,10 +158,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   StartingHordeMembersCount:
-    m_keys: 00000000010000000200000003000000
-    m_values: 01000000000000000000000000000000
+    m_keys: 00000000020000000100000003000000
+    m_values: 0a000000000000000000000000000000
   spawnables:
-  - {fileID: 0}
+  - {fileID: 11400000, guid: c82f1c894404a8f42ab11387609ea714, type: 2}
+  playerGO: {fileID: 1132008065}
 --- !u!4 &485400706
 Transform:
   m_ObjectHideFlags: 0
@@ -719,6 +720,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1132008065 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3525619779842208569, guid: 4f2bed9e9ff45484990bd0d3bb28c0a9, type: 3}
+  m_PrefabInstance: {fileID: 3525619779598029949}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1360400807
 GameObject:
   m_ObjectHideFlags: 3
@@ -989,6 +995,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3525619779842208569, guid: 4f2bed9e9ff45484990bd0d3bb28c0a9, type: 3}
       propertyPath: m_Name
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 3525619779842208569, guid: 4f2bed9e9ff45484990bd0d3bb28c0a9, type: 3}
+      propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 3525619779842208571, guid: 4f2bed9e9ff45484990bd0d3bb28c0a9, type: 3}
