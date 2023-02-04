@@ -14,7 +14,7 @@ public class EnemyAggro : MonoBehaviour
     [field: SerializeField] public LayerMask wallLayerMask;
     [field: SerializeField] public string PlayerTag { get; set; } = "Player";
     [field: SerializeField] public Transform Followtransform { get; set; }
-    [field: SerializeField] public List<EnemyNavigation> navigations;
+    [field: SerializeField] public EnemyNavigation navigation;
 
     private void Awake()
     {
@@ -30,16 +30,14 @@ public class EnemyAggro : MonoBehaviour
     // Start is called before the first frame update
     void SeekForPlayer()
     {
+        if (navigation == null) return;
         var direction = Followtransform.position - transform.position;
         RaycastHit hit;
         if (Physics.Raycast(transform.position, direction, out hit, Mathf.Infinity, wallLayerMask))
         {
             return;
         }
-        foreach (var navigation in navigations)
-        {
-            navigation.currentState = EnemyState.Attacking;
-        }
+        navigation.currentState = EnemyState.Attacking;
         currentState = EnemyState.Attacking;
     }
     
