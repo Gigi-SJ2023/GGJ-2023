@@ -1,5 +1,55 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &520273448921782444
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 653140672963320086}
+  - component: {fileID: 113076173142542532}
+  m_Layer: 0
+  m_Name: Attack
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &653140672963320086
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 520273448921782444}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6276133035164329752}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &113076173142542532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 520273448921782444}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d358217006b4854b260e90c76da9f3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <HordeType>k__BackingField: 4
+  <TickDuration>k__BackingField: 5
+  enemyTag: playerhittable
+  wallLayerMask:
+    serializedVersion: 2
+    m_Bits: 8
 --- !u!1 &6276133035164329754
 GameObject:
   m_ObjectHideFlags: 0
@@ -13,6 +63,8 @@ GameObject:
   - component: {fileID: -2018771845577961553}
   - component: {fileID: 9043347607034670052}
   - component: {fileID: 3722677229415065163}
+  - component: {fileID: 3678309186624100892}
+  - component: {fileID: -3797683830853873184}
   m_Layer: 0
   m_Name: EnemyHorde
   m_TagString: Untagged
@@ -31,7 +83,8 @@ Transform:
   m_LocalPosition: {x: -14.3, y: 0.5, z: -1.17}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 653140672963320086}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -82,15 +135,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcbced09e2d24340bc02a28541efc59e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StartingHordeMembersCount:
-    m_keys: 00000000
-    m_values: 05000000
+  hordeMembersCount:
+    m_keys: 
+    m_values: 
   spawnables:
   - {fileID: 11400000, guid: f27a799352558ca4e8821ad33f6aa6d5, type: 2}
-  maxSpawnDistance: {x: 0, y: 0}
-  OnAttack:
+  onUpdateMember:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 113076173142542532}
+        m_TargetAssemblyTypeName: PlayerHorde.HordeAttack, Assembly-CSharp
+        m_MethodName: UpdateAttackStats
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  maxSpawnDistance: {x: 5, y: 5}
 --- !u!114 &3722677229415065163
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -107,5 +172,36 @@ MonoBehaviour:
   wallLayerMask:
     serializedVersion: 2
     m_Bits: 8
+  <PlayerTag>k__BackingField: Player
   <Followtransform>k__BackingField: {fileID: 0}
   navigations: []
+--- !u!114 &3678309186624100892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6276133035164329754}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0ebabc0dacda76438a01a4364c3b98f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-3797683830853873184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6276133035164329754}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d358217006b4854b260e90c76da9f3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <HordeType>k__BackingField: 0
+  <TickDuration>k__BackingField: 5
+  enemyTag: playerhittable
+  wallLayerMask:
+    serializedVersion: 2
+    m_Bits: 8

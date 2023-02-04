@@ -13,7 +13,8 @@ namespace PlayerHorde
         Carrot,
         Potato,
         Radish,
-        Onion
+        Onion,
+        Human
     }
     [RequireComponent(typeof(HealthGroup))]
     public class HordeController : MonoBehaviour
@@ -22,6 +23,8 @@ namespace PlayerHorde
         public SerializableHordeIntTypeDictionary hordeMembersCount;
         [SerializeField] 
         private Spawn[] spawnables;
+
+        [SerializeField] protected UnityEvent<HordeMemberType, int> onUpdateMember;
 
         protected static Dictionary<HordeMemberType, ObjectPool<GameObject>> _goPools;
         private static readonly Vector3 DefaultGoSpawn = new Vector3(-100, -100, 0);
@@ -33,15 +36,17 @@ namespace PlayerHorde
             ActiveQueue = new Dictionary<HordeMemberType, Queue<GameObject>>();
             foreach(var member in hordeMembersCount)
             {
+                onUpdateMember.Invoke(member.Key, hordeMembersCount[member.Key]);
                 ActiveQueue.Add(member.Key, new Queue<GameObject>());
                 for (var i = 0; i < member.Value; i++)
                 {
                     Spawn(member.Key);
                 }
             }
+            
         }
 
-        public GameObject Spawn(HordeMemberType type)
+        protected GameObject Spawn(HordeMemberType type)
         {
             var spawn = Array.Find(spawnables, (spawn) => spawn.type == type);
             if (spawn == null) return null;
@@ -66,6 +71,7 @@ namespace PlayerHorde
             if (go == null) return;
             hordeMembersCount[type]--;
             _goPools[type].Release(go);
+            onUpdateMember.Invoke(type, hordeMembersCount[type]);
         }
 
         private void OnTakeGOFromPool(GameObject go)

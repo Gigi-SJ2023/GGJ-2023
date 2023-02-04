@@ -15,6 +15,7 @@ public class EnemyHordeController: HordeController
         foreach(var member in hordeMembersCount)
         {
             ActiveQueue.Add(member.Key, new Queue<GameObject>());
+            onUpdateMember.Invoke(member.Key, hordeMembersCount[member.Key]);
             for (var i = 0; i < member.Value; i++)
             {
                 var go = Spawn(member.Key);

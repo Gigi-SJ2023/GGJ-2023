@@ -17,8 +17,6 @@ namespace PlayerHorde
         private float elapsed = 0;
         private Damageable _target;
         private Transform _targetTransform;
-
-        
         private EnemyState state = EnemyState.Idling;
 
         private void Update()
@@ -31,17 +29,21 @@ namespace PlayerHorde
             ApplyDamage();
         }
 
+        public void UpdateAttackStats(HordeMemberType memberType, int amount)
+        {
+            if (memberType != HordeType) return;
+            Unit = amount;
+        }
+
         private void SeekForTarget()
         {
             var direction = _targetTransform.position - transform.position;
             RaycastHit hit;
             if (Physics.Raycast(transform.position, direction, out hit, Mathf.Infinity, wallLayerMask))
             {
-                Debug.Log("Seeking for target");
                 state = EnemyState.Seeking;
                 return;
             }
-            Debug.Log("Attacking target");
             state = EnemyState.Attacking;
         }
 

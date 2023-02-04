@@ -246,6 +246,57 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 7ae3c4597d9e171469284b2545c30a2a, type: 2}
   - {fileID: 11400000, guid: 6ab412ac8ad55034fb8ed05c633e6ae1, type: 2}
   - {fileID: 11400000, guid: 1f5fa7a60f73c7a449963bab2bcd96fc, type: 2}
+  onUpdateMember:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3531069343456669698}
+        m_TargetAssemblyTypeName: PlayerHorde.HordeAttack, Assembly-CSharp
+        m_MethodName: UpdateAttackStats
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 7573797626931057440}
+        m_TargetAssemblyTypeName: PlayerHorde.HordeAttack, Assembly-CSharp
+        m_MethodName: UpdateAttackStats
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 8454657252152069532}
+        m_TargetAssemblyTypeName: PlayerHorde.HordeAttack, Assembly-CSharp
+        m_MethodName: UpdateAttackStats
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 595229893279066521}
+        m_TargetAssemblyTypeName: PlayerHorde.HordeAttack, Assembly-CSharp
+        m_MethodName: UpdateAttackStats
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   maxSpawnDistance: {x: 10, y: 10}
 --- !u!114 &6130058616622948679
 MonoBehaviour:
