@@ -25,7 +25,7 @@ namespace PlayerHorde
 
         [SerializeField] protected UnityEvent<HordeMemberType, int> onUpdateMember;
 
-        protected static Dictionary<HordeMemberType, ObjectPool<GameObject>> _goPools;
+        protected Dictionary<HordeMemberType, ObjectPool<GameObject>> _goPools;
         private static readonly Vector3 DefaultGoSpawn = new Vector3(-100, -100, 0);
         protected Dictionary<HordeMemberType, Queue<GameObject>> ActiveQueue;
         [SerializeField] private Vector2 maxSpawnDistance = Vector3.zero;
@@ -33,7 +33,7 @@ namespace PlayerHorde
         {
             _goPools = new Dictionary<HordeMemberType, ObjectPool<GameObject>>();
             ActiveQueue = new Dictionary<HordeMemberType, Queue<GameObject>>();
-            foreach(var member in hordeMembersCount)
+            foreach (var member in hordeMembersCount)
             {
                 onUpdateMember.Invoke(member.Key, hordeMembersCount[member.Key]);
                 ActiveQueue.Add(member.Key, new Queue<GameObject>());
@@ -42,7 +42,6 @@ namespace PlayerHorde
                     Spawn(member.Key);
                 }
             }
-            
         }
 
         public void AddMemberToHorde(HordeMemberType type)
