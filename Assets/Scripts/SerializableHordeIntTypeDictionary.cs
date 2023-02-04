@@ -1,5 +1,9 @@
 ﻿using System;
+using SerializableUtils;
 
-[Serializable]
-public class SerializableHordeIntTypeDictionary : SerializableDictionary<HordeMemberType, int>
-{}
+namespace PlayerHorde
+{
+    [Serializable]
+    public class SerializableHordeIntTypeDictionary : SerializableDictionary<HordeMemberType, int>
+    {}
+}

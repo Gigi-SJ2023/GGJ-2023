@@ -1,4 +1,8 @@
 ﻿using UnityEditor;
+using PlayerHorde;
 
-[CustomPropertyDrawer(typeof(SerializableHordeIntTypeDictionary))]
-public class SerializableHordeIntDictionaryPropertyDrawer : SerializableDictionaryPropertyDrawer {}
+namespace SerializableUtils
+{
+    [CustomPropertyDrawer(typeof(SerializableHordeIntTypeDictionary))]
+    public class SerializableHordeIntDictionaryPropertyDrawer : SerializableDictionaryPropertyDrawer {}
+}

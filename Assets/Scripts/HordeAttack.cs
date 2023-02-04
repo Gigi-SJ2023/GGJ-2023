@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-namespace DefaultNamespace
+namespace PlayerHorde
 {
     public class HordeAttack: MonoBehaviour
     {
