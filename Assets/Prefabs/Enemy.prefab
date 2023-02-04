@@ -137,9 +137,6 @@ MonoBehaviour:
   <Followtransform>k__BackingField: {fileID: 0}
   <MinDistance>k__BackingField: 5
   <PlayerTag>k__BackingField: Player
-  wallLayerMask:
-    serializedVersion: 2
-    m_Bits: 8
   currentState: 0
 --- !u!1001 &8046411719108629353
 PrefabInstance:

@@ -137,6 +137,7 @@ MonoBehaviour:
   <Followtransform>k__BackingField: {fileID: 0}
   <MinDistance>k__BackingField: 3
   <WaypointTag>k__BackingField: playerHordeWaypoint
+  <PlayerHordeAreaTag>k__BackingField: playerHordeSizeContainer
   <BaseSpeed>k__BackingField: 10
   <BaseAcceleration>k__BackingField: 10
 --- !u!1001 &8046411719108629353
