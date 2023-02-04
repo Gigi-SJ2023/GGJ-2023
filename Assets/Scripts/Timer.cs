@@ -10,6 +10,11 @@ public class Timer
     public Action ONTimerEnd;
     public bool Paused { get; set; } = false;
 
+    public Timer(float duration = 0)
+    {
+        Duration = duration;
+    }
+    
     ~Timer()
     {
         Clear();

@@ -34,11 +34,8 @@ public class EnemyAggro : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(transform.position, direction, out hit, Mathf.Infinity, wallLayerMask))
         {
-            Debug.Log("Seeking for player: not found");
             return;
         }
-        // setup children for attack
-        Debug.Log("Seeking for player: found");
         foreach (var navigation in navigations)
         {
             navigation.currentState = EnemyState.Attacking;
@@ -49,14 +46,12 @@ public class EnemyAggro : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (!other.CompareTag(PlayerTag)) return;
-        Debug.Log("Seeking for player: started");
         currentState = EnemyState.Seeking;
     }
     private void OnTriggerExit(Collider other)
     {
         if (!other.CompareTag(PlayerTag)) return;
         if (currentState != EnemyState.Seeking) return;
-        Debug.Log("Going back to idle");
         currentState = EnemyState.Idling;
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Pool;
+using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
 namespace PlayerHorde
@@ -14,23 +15,23 @@ namespace PlayerHorde
         Radish,
         Onion
     }
-
+    [RequireComponent(typeof(HealthGroup))]
     public class HordeController : MonoBehaviour
     {
-        [field: SerializeField] protected SerializableHordeIntTypeDictionary StartingHordeMembersCount;
+        [field: SerializeField] 
+        public SerializableHordeIntTypeDictionary hordeMembersCount;
         [SerializeField] 
         private Spawn[] spawnables;
 
-        protected static Dictionary<Spawn, ObjectPool<GameObject>> _goPools;
+        protected static Dictionary<HordeMemberType, ObjectPool<GameObject>> _goPools;
         private static readonly Vector3 DefaultGoSpawn = new Vector3(-100, -100, 0);
         protected Dictionary<HordeMemberType, Queue<GameObject>> ActiveQueue;
         [SerializeField] private Vector2 maxSpawnDistance = Vector3.zero;
-
         public virtual void Start()
         {
-            _goPools = new Dictionary<Spawn, ObjectPool<GameObject>>();
+            _goPools = new Dictionary<HordeMemberType, ObjectPool<GameObject>>();
             ActiveQueue = new Dictionary<HordeMemberType, Queue<GameObject>>();
-            foreach(var member in StartingHordeMembersCount)
+            foreach(var member in hordeMembersCount)
             {
                 ActiveQueue.Add(member.Key, new Queue<GameObject>());
                 for (var i = 0; i < member.Value; i++)
@@ -44,27 +45,27 @@ namespace PlayerHorde
         {
             var spawn = Array.Find(spawnables, (spawn) => spawn.type == type);
             if (spawn == null) return null;
-            if (!_goPools.ContainsKey(spawn))
+            if (!_goPools.ContainsKey(type))
             {
                 var pool = new ObjectPool<GameObject>(
                     spawn.SpawnUnit, 
                     OnTakeGOFromPool, 
                     OnReleaseGOToPool
                 );
-                _goPools.Add(spawn, pool);
+                _goPools.Add(type, pool);
             }
-            var unit = _goPools[spawn].Get();
-            var actives = ActiveQueue[type];
-            actives.Enqueue(unit);
+            var unit = _goPools[type].Get();
+            ActiveQueue[type]?.Enqueue(unit);
             unit.SetActive(true);
             return unit;
         }
         public void DestroyByType(HordeMemberType type)
         {
+            if (ActiveQueue[type].Count <=0) return;
             var go = ActiveQueue[type].Dequeue();
-            var spawn = Array.Find(spawnables, (spawn) => spawn.type == type);
-            if (spawn == null || go == null) return;
-            _goPools[spawn].Release(go);
+            if (go == null) return;
+            hordeMembersCount[type]--;
+            _goPools[type].Release(go);
         }
 
         private void OnTakeGOFromPool(GameObject go)

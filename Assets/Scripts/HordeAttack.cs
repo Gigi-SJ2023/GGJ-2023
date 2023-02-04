@@ -8,67 +8,64 @@ namespace PlayerHorde
     public class HordeAttack: MonoBehaviour
     {
         private Timer _timer;
-
         [field: SerializeField] 
         private HordeMemberType HordeType { get; set; } = HordeMemberType.Carrot;
         [field: SerializeField] 
-        public float TickDuration { get; set; } = 1;
+        public float TickDuration { get; set; } = 5;
         public int DamagePerUnit { get; set; } = 10;
         public int Unit { get; set; } = 1;
         [SerializeField]
-        private bool active;
+        private bool active = false;
         [field: SerializeField] 
         private string enemyTag = "enemy";
-
-        private List<Damageable> _targets = new List<Damageable>();
-        
-        private void Start()
-        {
-            _timer = new Timer
-            {
-                Duration = TickDuration,
-                Paused = true
-            };
-            _timer.ONTimerEnd += ApplyDamage;
-        }
+        private float elapsed = 0;
+        private Damageable _target;
 
         private void Update()
         {
-            _timer.Tick(Time.deltaTime);
+            if (!active) return;
+            elapsed += Time.deltaTime;
+            if (!(elapsed > TickDuration)) return;
+            elapsed = 0;
+            ApplyDamage();
+        }
+
+        public int GetDamage()
+        {
+            return DamagePerUnit * Unit;
         }
 
         private void ApplyDamage()
         {
             if (!active) return;
-            var damage = DamagePerUnit * Unit;
-            _timer.Reset();
-
-            Debug.Log(String.Format("Type {0} applying {1} damage.", HordeType, damage));
+            _target?.Damage(GetDamage());
+            elapsed = 0;
         }
 
         private void OnTriggerEnter(Collider other)
         {
             if (!other.CompareTag(enemyTag)) return;
+            _target = other.gameObject.GetComponent<Damageable>();
+            if (_target == null) return;
             StartAttack();
         }
         private void OnTriggerExit(Collider other)
         {
             if (!other.CompareTag(enemyTag)) return;
+            _target = null;
             StopAttack();
         }
 
         private void StartAttack()
         {
             active = true;
-            _timer.Reset();
-            _timer.Paused = false;
+            elapsed = 0;
         }
 
         private void StopAttack()
         {
             active = false;
-            _timer.Reset();
-            _timer.Paused = true;
+            elapsed = 0;
         }
     }
 }
