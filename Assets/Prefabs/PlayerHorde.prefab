@@ -296,6 +296,42 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: 6950fa4a59e069b4dacb3e1c6a87c095, type: 2}
+        m_TargetAssemblyTypeName: HumanStats, Assembly-CSharp
+        m_MethodName: UpdateDamageStats
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: 40003a7caad36b44697247334e3f4f94, type: 2}
+        m_TargetAssemblyTypeName: HumanStats, Assembly-CSharp
+        m_MethodName: UpdateDamageStats
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: 41e09786bab5e764e81a1f9c4a1c739c, type: 2}
+        m_TargetAssemblyTypeName: HumanStats, Assembly-CSharp
+        m_MethodName: UpdateDamageStats
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   maxSpawnDistance: {x: 10, y: 10}
 --- !u!1 &3597794930290424596
 GameObject:
