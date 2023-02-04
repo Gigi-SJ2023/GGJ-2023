@@ -113,10 +113,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <PlayerHordeAreaTag>k__BackingField: playerHordeSizeContainer
   <PlayerHordeTag>k__BackingField: playerHorde
-  recruitHordeController: {fileID: 0}
-  RecruitCount:
-    m_keys: 0000000001000000
-    m_values: 0300000002000000
+  recruitHordeController: {fileID: 5333335396323939931}
 --- !u!114 &5333335396323939931
 MonoBehaviour:
   m_ObjectHideFlags: 0
