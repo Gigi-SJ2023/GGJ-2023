@@ -4,6 +4,12 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Movement-proto.unity
+    guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Scenes/Level 1.unity
+    guid: 7d52daa375d093b4390a458c1f10891e
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 7c3fb23ae78071d41a7a6dd14000e374, type: 2}
