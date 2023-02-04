@@ -49,7 +49,7 @@ namespace PlayerHorde
         {
             if(!hordeMembersCount.TryAdd(type, 1))
             {
-                hordeMembersCount[type] = 1;
+                hordeMembersCount[type] += 1;
             }
             onUpdateMember.Invoke(type, hordeMembersCount[type]);
             Spawn(type);
