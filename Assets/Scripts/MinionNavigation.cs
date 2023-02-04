@@ -34,11 +34,7 @@ public class MinionNavigation : MonoBehaviour
         if (Followtransform == null) return;
 
         var destination = Followtransform.position;
-
-        if (isInHordeArea())
-        {
-            Debug.Log("is in area");
-        }
+        
         _navMeshAgent.isStopped = Vector3.Distance(transform.position, destination) <= MinDistance;
         _navMeshAgent.destination = destination;
         _navMeshAgent.speed = (BaseSpeed / (2 / Vector3.Distance(transform.position, destination)));

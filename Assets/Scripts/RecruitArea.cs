@@ -10,6 +10,8 @@ namespace Loot
         [field: SerializeField] public string PlayerHordeTag { get; set; } = "playerHorde";
         private CapsuleCollider playerHordeCollider;
         private HordeController hordeController;
+        [field: SerializeField]
+        private HordeController recruitHordeController;
         private bool claimed = false;
 
         [field: SerializeField] 
@@ -20,21 +22,22 @@ namespace Loot
             playerHordeCollider = playerHordeAreaGo.GetComponent<CapsuleCollider>();
             var playerHordeGo = GameObject.FindGameObjectWithTag(PlayerHordeTag);
             hordeController = playerHordeGo.GetComponent<HordeController>();
+            recruitHordeController = gameObject.GetComponent<HordeController>();
         }
 
-        private void Update() {
-            if (playerHordeCollider.bounds.Contains(transform.position) && !claimed)
+        private void Update()
+        {
+            if (!playerHordeCollider.bounds.Contains(transform.position) || claimed) return;
+            claimed = true;
+            foreach (var member in RecruitCount)
             {
-                claimed = true;
-                foreach (var member in RecruitCount)
+                for (var i = 0; i < member.Value; i++)
                 {
-                    for (var i = 0; i < member.Value; i++)
-                    {
-                        hordeController.AddMemberToHorde(member.Key);
-                    }
+                    hordeController.AddMemberToHorde(member.Key);
+                    recruitHordeController.DestroyByType(member.Key);
                 }
-                Destroy(gameObject);
             }
+            // Destroy(gameObject);
         }
     }
 }
