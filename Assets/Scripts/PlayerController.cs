@@ -18,7 +18,7 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        var velocity = new Vector3(moveInput.x,0,  moveInput.y) * (moveSpeed * Time.deltaTime);
+        var velocity = new Vector3(moveInput.x, 0, moveInput.y) * (moveSpeed * Time.deltaTime);
         controller.Move(velocity);
     }
 
