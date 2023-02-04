@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 7245502585978253644}
   - component: {fileID: 7245502585978253645}
   m_Layer: 0
-  m_Name: Minion
+  m_Name: Potato
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -137,6 +137,7 @@ MonoBehaviour:
   <Followtransform>k__BackingField: {fileID: 0}
   <MinDistance>k__BackingField: 3
   <WaypointTag>k__BackingField: playerHordeWaypoint
+  <PlayerHordeAreaTag>k__BackingField: playerHordeSizeContainer
   <BaseSpeed>k__BackingField: 10
   <BaseAcceleration>k__BackingField: 10
 --- !u!1001 &8046411719108629353
@@ -146,6 +147,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7245502585978253632}
     m_Modifications:
+    - target: {fileID: 786585301726699269, guid: 341710b8e817d8647bea21f3c678eabb, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: cb0515d079dc3314fa3972bc5bb84175, type: 3}
     - target: {fileID: 786585301992755627, guid: 341710b8e817d8647bea21f3c678eabb, type: 3}
       propertyPath: m_Name
       value: SpriteContainer

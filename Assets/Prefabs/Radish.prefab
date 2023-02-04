@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 7245502585978253646}
   - component: {fileID: 7245502585978253647}
   - component: {fileID: 7245502585978253644}
-  - component: {fileID: 9095324227815114453}
+  - component: {fileID: 7245502585978253645}
   m_Layer: 0
-  m_Name: Enemy
+  m_Name: Radish
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -98,7 +98,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 0.1, y: 1, z: 0.1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!195 &7245502585978253644
 NavMeshAgent:
@@ -109,7 +109,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 7245502585978253642}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 1.2
+  m_Radius: 0.8
   m_Speed: 10
   m_Acceleration: 10
   avoidancePriority: 50
@@ -122,7 +122,7 @@ NavMeshAgent:
   m_BaseOffset: 0.5
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &9095324227815114453
+--- !u!114 &7245502585978253645
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -131,13 +131,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 7245502585978253642}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0c58f15e3f455b428642d86b6788eac, type: 3}
+  m_Script: {fileID: 11500000, guid: 12e0ebe82eacca44bb2de530cf203bb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   <Followtransform>k__BackingField: {fileID: 0}
-  <MinDistance>k__BackingField: 5
-  <PlayerTag>k__BackingField: Player
-  currentState: 0
+  <MinDistance>k__BackingField: 3
+  <WaypointTag>k__BackingField: playerHordeWaypoint
+  <PlayerHordeAreaTag>k__BackingField: playerHordeSizeContainer
+  <BaseSpeed>k__BackingField: 10
+  <BaseAcceleration>k__BackingField: 10
 --- !u!1001 &8046411719108629353
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -145,6 +147,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7245502585978253632}
     m_Modifications:
+    - target: {fileID: 786585301726699269, guid: 341710b8e817d8647bea21f3c678eabb, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 085955966db20034fbe27db289506535, type: 3}
     - target: {fileID: 786585301992755627, guid: 341710b8e817d8647bea21f3c678eabb, type: 3}
       propertyPath: m_Name
       value: SpriteContainer

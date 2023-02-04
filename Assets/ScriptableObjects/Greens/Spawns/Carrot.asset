@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84546c7eb2a24b1ca2894cb260986bb3, type: 3}
   m_Name: Carrot
   m_EditorClassIdentifier: 
-  <Prefab>k__BackingField: {fileID: 7245502585978253642, guid: 7d56cd3af05f9464f86ced74aaa14b5b, type: 3}
+  <Prefab>k__BackingField: {fileID: 7245502585978253642, guid: a3c2f31b6e61eef448d244fb51ec7db7, type: 3}
   type: 0
