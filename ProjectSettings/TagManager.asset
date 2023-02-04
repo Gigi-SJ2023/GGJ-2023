@@ -7,6 +7,8 @@ TagManager:
   - enemy
   - player
   - playerhittable
+  - playerHordeWaypoint
+  - playerHordeSizeContainer
   layers:
   - Default
   - TransparentFX
