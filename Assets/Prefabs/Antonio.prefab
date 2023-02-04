@@ -59,7 +59,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <HordeType>k__BackingField: 4
-  <TickDuration>k__BackingField: 5
+  <TickDuration>k__BackingField: 0.25
   enemyTag: playerhittable
   wallLayerMask:
     serializedVersion: 2
@@ -160,7 +160,7 @@ MonoBehaviour:
     m_Bits: 8
   <PlayerTag>k__BackingField: Player
   <Followtransform>k__BackingField: {fileID: 0}
-  navigation: {fileID: 0}
+  navigation: {fileID: -5455958184877519325}
 --- !u!135 &1670409430561670697
 SphereCollider:
   m_ObjectHideFlags: 0
