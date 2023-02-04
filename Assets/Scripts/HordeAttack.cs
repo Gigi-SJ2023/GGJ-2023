@@ -2,12 +2,11 @@
 
 namespace PlayerHorde
 {
-    public class HordeAttack: MonoBehaviour
+    abstract public class HordeAttack: MonoBehaviour
     {
         [field: SerializeField] 
         private HordeMemberType HordeType { get; set; } = HordeMemberType.Carrot;
-        [field: SerializeField] 
-        public float TickDuration { get; set; } = 5;
+        protected float TickDuration { get; set; } = 5;
         public int DamagePerUnit { get; set; } = 0;
         public int Unit { get; set; } = 1;
         [field: SerializeField] 
@@ -28,6 +27,8 @@ namespace PlayerHorde
             elapsed = 0;
             ApplyDamage();
         }
+
+        abstract public float GetTickDuration();
 
         public void UpdateAttackStats(HordeMemberType memberType, int amount)
         {
