@@ -35,6 +35,6 @@ public class HumanStats : ScriptableObject
     
     public int GetDamage()
     {
-        return (int)Math.Floor(1 + HordeSize() * sizePercentage);
+        return (int)Math.Floor(1 + HordeSize() * sizePercentage) + AttackBonus;
     }
 }
