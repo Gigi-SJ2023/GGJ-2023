@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -160,8 +160,8 @@ MonoBehaviour:
   StartingHordeMembersCount:
     m_keys: 00000000010000000200000003000000
     m_values: 01000000000000000000000000000000
-  Player: {fileID: 1132008065}
-  MinionPrefab: {fileID: 7245502585978253642, guid: 7d56cd3af05f9464f86ced74aaa14b5b, type: 3}
+  spawnables:
+  - {fileID: 0}
 --- !u!4 &485400706
 Transform:
   m_ObjectHideFlags: 0
@@ -719,11 +719,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1132008065 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3525619779842208569, guid: 4f2bed9e9ff45484990bd0d3bb28c0a9, type: 3}
-  m_PrefabInstance: {fileID: 3525619779598029949}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1360400807
 GameObject:
   m_ObjectHideFlags: 3

@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
+using UnityEngine.Pool;
 
 namespace PlayerHorde
 {
@@ -14,89 +16,64 @@ namespace PlayerHorde
 
     public class HordeController : MonoBehaviour
     {
-        [field: SerializeField] 
+        [field: SerializeField]
         private SerializableHordeIntTypeDictionary StartingHordeMembersCount;
-        private IDictionary<HordeMemberType, int> hordeMembersCount;
-        private IDictionary<HordeMemberType, int> previousHordeMembersCount;
-        private IDictionary<HordeMemberType, Stack<GameObject>> instantiatedObjects;
-        public GameObject player;
-        public GameObject minionPrefab;
-
-        private void Start() {
-            hordeMembersCount = new Dictionary<HordeMemberType, int>();
-            foreach (KeyValuePair<HordeMemberType, int> kvp in StartingHordeMembersCount)
-            {
-                hordeMembersCount[kvp.Key] = kvp.Value;
-            }
-            previousHordeMembersCount = new Dictionary<HordeMemberType, int>();
-            instantiatedObjects = new Dictionary<HordeMemberType, Stack<GameObject>>();
-            
-            foreach (HordeMemberType type in (HordeMemberType[]) Enum.GetValues(typeof(HordeMemberType)))
-            {
-                previousHordeMembersCount.Add(type, 0);
-            }
-            OnMemberCountChange();
-        }
-
-        private int CalcTotalMemberCount()
+        [SerializeField] 
+        private Spawn[] spawnables;
+        private static Dictionary<Spawn, ObjectPool<GameObject>> _goPools;
+        private static readonly Vector3 DefaultGoSpawn = new Vector3(-100, -100, 0);
+        public GameObject playerGO;
+        private Dictionary<HordeMemberType, Queue<GameObject>> _activeStacks;
+        private void Start()
         {
-            int total = 0;
-            foreach (int subTotal in hordeMembersCount.Values)
+            _goPools = new Dictionary<Spawn, ObjectPool<GameObject>>();
+            foreach(var member in StartingHordeMembersCount)
             {
-                total += subTotal;
-            }
-            return total;
-        }
-
-        public void AddHordeMember(HordeMemberType type, int qty = 1)
-        {
-            if (!hordeMembersCount.ContainsKey(type))
-            {
-                hordeMembersCount[type] = 0;
-            }
-            hordeMembersCount[type]++;
-            OnMemberCountChange();
-        }
-
-        private void InstantiateNewHordeMember(HordeMemberType Type)
-        {
-            Debug.Log("InstantiateNewHordeMember");
-            GameObject newMember = Instantiate<GameObject>(minionPrefab, player.transform) as GameObject;
-
-            MinionNavigation minionNavigation = newMember.getComponent<MinionNavigation>();
-
-            minionNavigation.Playertransform = player.transform;
-            instantiatedObjects[Type].Push(newMember);
-            hordeMembersCount[Type]++;
-        }
-
-        private void DestroyHordeMember(HordeMemberType Type)
-        {
-            Debug.Log("DestroyHordeMember");
-            if (instantiatedObjects[Type].Count > 0)
-            {
-                Destroy(instantiatedObjects[Type].Pop());
-                hordeMembersCount[Type]--;
-            }
-        }
-
-        public void OnMemberCountChange()
-        {
-            Debug.Log("OnMemberCountChange");
-            foreach (KeyValuePair<HordeMemberType, int> kvp in hordeMembersCount)
-            {
-                while (previousHordeMembersCount[kvp.Key] != kvp.Value)
+                for (var i = 0; i < member.Value; i++)
                 {
-                    if (previousHordeMembersCount[kvp.Key] < kvp.Value)
-                    {
-                        InstantiateNewHordeMember(kvp.Key);
-                    }
-                    else
-                    {
-                        DestroyHordeMember(kvp.Key);
-                    }
+                    Spawn(member.Key);
                 }
             }
+        }
+
+        public void Spawn(HordeMemberType type)
+        {
+            var spawn = Array.Find(spawnables, (spawn) => spawn.type == type);
+            if (spawn == null) return;
+            if (!_goPools.ContainsKey(spawn))
+            {
+                var pool = new ObjectPool<GameObject>(
+                    spawn.SpawnUnit, 
+                    OnTakeGOFromPool, 
+                    OnReleaseGOToPool
+                );
+                _goPools.Add(spawn, pool);
+            }
+            var unit = _goPools[spawn].Get();
+            var actives = _activeStacks[type];
+            actives.Enqueue(unit);
+            var navigation = unit.GetComponent<MinionNavigation>();
+            navigation.Playertransform = playerGO.transform;
+            unit.SetActive(true);
+        }
+
+        public void DestroyByType(HordeMemberType type)
+        {
+            var go = _activeStacks[type].Dequeue();
+            var spawn = Array.Find(spawnables, (spawn) => spawn.type == type);
+            if (spawn == null || go == null) return;
+            _goPools[spawn].Release(go);
+        }
+
+        private void OnTakeGOFromPool(GameObject go)
+        {
+            go.transform.position = transform.position;
+        }
+        
+        private static void OnReleaseGOToPool(GameObject go)
+        {
+            go.transform.position = DefaultGoSpawn;
+            go.SetActive(false);
         }
     }
 }
