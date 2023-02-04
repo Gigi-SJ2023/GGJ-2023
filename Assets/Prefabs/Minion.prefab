@@ -98,7 +98,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 0.5, y: 1, z: 0.5}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!195 &7245502585978253644
 NavMeshAgent:
@@ -136,7 +136,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Followtransform>k__BackingField: {fileID: 0}
   <MinDistance>k__BackingField: 5
-  <PlayerTag>k__BackingField: Player
+  <WaypointTag>k__BackingField: playerHordeWaypoint
+  <BaseSpeed>k__BackingField: 10
+  <BaseAcceleration>k__BackingField: 10
 --- !u!1001 &8046411719108629353
 PrefabInstance:
   m_ObjectHideFlags: 0
