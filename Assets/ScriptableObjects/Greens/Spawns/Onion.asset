@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Onion
   m_EditorClassIdentifier: 
   <Prefab>k__BackingField: {fileID: 7245502585978253642, guid: c37d478481d1bea4989ca554bc169932, type: 3}
-  type: 0
+  type: 3

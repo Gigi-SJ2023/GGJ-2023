@@ -14,7 +14,7 @@ namespace Loot
         [field: SerializeField]
         private HordeController recruitHordeController;
         private bool claimed = false;
-        private SerializableHordeIntTypeDictionary RecruitCount;
+        private SerializableHordeIntTypeDictionary _recruitCount;
 
         private void Start() {
             var playerHordeAreaGo = GameObject.FindGameObjectWithTag(PlayerHordeAreaTag);
@@ -22,14 +22,14 @@ namespace Loot
             var playerHordeGo = GameObject.FindGameObjectWithTag(PlayerHordeTag);
             hordeController = playerHordeGo.GetComponent<HordeController>();
             recruitHordeController = gameObject.GetComponent<HordeController>();
-            RecruitCount = recruitHordeController.hordeMembersCount;
+            _recruitCount = recruitHordeController.hordeMembersCount;
         }
 
         private void Update()
         {
             if (!playerHordeCollider.bounds.Contains(transform.position) || claimed) return;
             claimed = true;
-            var count = new Dictionary<HordeMemberType, int>(RecruitCount);
+            var count = new Dictionary<HordeMemberType, int>(_recruitCount);
             foreach (var member in count)
             {
                 for (var i = 0; i < member.Value; i++)

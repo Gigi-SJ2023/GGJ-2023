@@ -68,6 +68,10 @@ namespace PlayerHorde
                 _goPools.Add(type, pool);
             }
             var unit = _goPools[type].Get();
+            if (!ActiveQueue.ContainsKey(type))
+            {
+                ActiveQueue.Add(type, new Queue<GameObject>());
+            }
             ActiveQueue[type]?.Enqueue(unit);
             unit.SetActive(true);
             return unit;
