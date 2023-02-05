@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace PlayerHorde
 {
@@ -17,6 +18,7 @@ namespace PlayerHorde
         private Damageable _target;
         private Transform _targetTransform;
         private EnemyState state = EnemyState.Idling;
+        private bool debug = false;
 
         private void Update()
         {
@@ -55,6 +57,9 @@ namespace PlayerHorde
 
         private void ApplyDamage()
         {
+            
+            var damage = GetDamage();
+            if (debug) Debug.Log(String.Format("{0} attacked for {1} damage", gameObject.name, damage));
             _target?.Damage(GetDamage());
             elapsed = 0;
         }
