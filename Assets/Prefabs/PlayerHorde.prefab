@@ -217,7 +217,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3531069343875685441}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -14.3, y: 0.5, z: -1.17}
+  m_LocalPosition: {x: -14.3, y: 0, z: -1.17}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -248,9 +248,9 @@ MonoBehaviour:
   onUpdateMember:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: PlayerHorde.HordeAttack, Assembly-CSharp
-        m_MethodName: UpdateAttackStats
+      - m_Target: {fileID: 11400000, guid: 746b5fc59de8e3f459bb15695bcfff23, type: 2}
+        m_TargetAssemblyTypeName: PlayerHorde.GreenStats, Assembly-CSharp
+        m_MethodName: UpdateDamageStats
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -260,9 +260,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: PlayerHorde.HordeAttack, Assembly-CSharp
-        m_MethodName: UpdateAttackStats
+      - m_Target: {fileID: 11400000, guid: b93cdeda3e36ce742a5a46251ecba593, type: 2}
+        m_TargetAssemblyTypeName: PlayerHorde.GreenStats, Assembly-CSharp
+        m_MethodName: UpdateDamageStats
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -272,9 +272,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: PlayerHorde.HordeAttack, Assembly-CSharp
-        m_MethodName: UpdateAttackStats
+      - m_Target: {fileID: 11400000, guid: c1da5cfbfc9ada14588646141644ec5e, type: 2}
+        m_TargetAssemblyTypeName: PlayerHorde.GreenStats, Assembly-CSharp
+        m_MethodName: UpdateDamageStats
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -284,9 +284,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: PlayerHorde.HordeAttack, Assembly-CSharp
-        m_MethodName: UpdateAttackStats
+      - m_Target: {fileID: 11400000, guid: 9de4ccda89bc6384bb9fb46a100a99c6, type: 2}
+        m_TargetAssemblyTypeName: PlayerHorde.GreenStats, Assembly-CSharp
+        m_MethodName: UpdateDamageStats
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -593,9 +593,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3531069343875685443}
     m_Modifications:
+    - target: {fileID: 3525619779842208560, guid: 4f2bed9e9ff45484990bd0d3bb28c0a9, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3525619779842208561, guid: 4f2bed9e9ff45484990bd0d3bb28c0a9, type: 3}
       propertyPath: m_Camera
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3525619779842208564, guid: 4f2bed9e9ff45484990bd0d3bb28c0a9, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3525619779842208565, guid: 4f2bed9e9ff45484990bd0d3bb28c0a9, type: 3}
       propertyPath: m_RootOrder
@@ -642,6 +650,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3525619779842208568, guid: 4f2bed9e9ff45484990bd0d3bb28c0a9, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3525619779842208568, guid: 4f2bed9e9ff45484990bd0d3bb28c0a9, type: 3}
       propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
@@ -659,7 +671,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3525619779842208571, guid: 4f2bed9e9ff45484990bd0d3bb28c0a9, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4f2bed9e9ff45484990bd0d3bb28c0a9, type: 3}
@@ -668,6 +680,22 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3525619779842208569, guid: 4f2bed9e9ff45484990bd0d3bb28c0a9, type: 3}
   m_PrefabInstance: {fileID: 138877520859490492}
   m_PrefabAsset: {fileID: 0}
+--- !u!54 &3760601607230053036
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3531069343566142341}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 4
+  m_CollisionDetection: 0
 --- !u!4 &3531069343566142345 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3525619779842208565, guid: 4f2bed9e9ff45484990bd0d3bb28c0a9, type: 3}
@@ -680,13 +708,29 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3531069343566142345}
     m_Modifications:
+    - target: {fileID: 28426228335318100, guid: 10f517b35cc72e64f9347741199d35cb, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 28426228335318101, guid: 10f517b35cc72e64f9347741199d35cb, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 28426229243672032, guid: 10f517b35cc72e64f9347741199d35cb, type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 3531069343566142341}
+    - target: {fileID: 28426229243672032, guid: 10f517b35cc72e64f9347741199d35cb, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 28426229243672037, guid: 10f517b35cc72e64f9347741199d35cb, type: 3}
       propertyPath: m_Name
       value: HordeWaypoint
+      objectReference: {fileID: 0}
+    - target: {fileID: 28426229243672037, guid: 10f517b35cc72e64f9347741199d35cb, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 28426229243672038, guid: 10f517b35cc72e64f9347741199d35cb, type: 3}
       propertyPath: m_RootOrder
@@ -731,6 +775,10 @@ PrefabInstance:
     - target: {fileID: 28426229243672038, guid: 10f517b35cc72e64f9347741199d35cb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 28426229243672039, guid: 10f517b35cc72e64f9347741199d35cb, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 10f517b35cc72e64f9347741199d35cb, type: 3}
