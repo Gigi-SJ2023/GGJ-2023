@@ -104,13 +104,13 @@ MonoBehaviour:
     value: 100
   lift:
     overrideState: 1
-    value: {x: 0.82746375, y: 1, z: 0.9667576, w: 0.16483516}
+    value: {x: 1, y: 0.9197053, z: 0.730723, w: 0.16483516}
   gamma:
     overrideState: 1
-    value: {x: 1, y: 0.92660373, z: 0.93395436, w: 0}
+    value: {x: 0.53121436, y: 0.68476665, z: 1, w: 0}
   gain:
     overrideState: 1
-    value: {x: 1, y: 0.8985744, z: 0.9876538, w: 0}
+    value: {x: 0.14381367, y: 0.2616567, z: 1, w: 0}
   masterCurve:
     overrideState: 0
     value:
@@ -1335,7 +1335,7 @@ MonoBehaviour:
     value: 0.78
   color:
     overrideState: 1
-    value: {r: 0.7903071, g: 0.48584908, b: 1, a: 1}
+    value: {r: 0.2588235, g: 0.26783043, b: 1, a: 1}
   ambientOnly:
     overrideState: 0
     value: 1
@@ -1370,7 +1370,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8e6292b2c06870d4495f009f912b9600, type: 3}
-  m_Name: Main Camera Profile
+  m_Name: level_3_profile 1
   m_EditorClassIdentifier: 
   settings:
   - {fileID: -169488226044011331}
