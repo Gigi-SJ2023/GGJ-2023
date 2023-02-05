@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using PlayerHorde;
 using SerializableUtils;
@@ -28,7 +29,8 @@ namespace Loot
         {
             if (!playerHordeCollider.bounds.Contains(transform.position) || claimed) return;
             claimed = true;
-            foreach (var member in RecruitCount)
+            var count = new Dictionary<HordeMemberType, int>(RecruitCount);
+            foreach (var member in count)
             {
                 for (var i = 0; i < member.Value; i++)
                 {

@@ -157,7 +157,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8753766449914581255, guid: caeb69a9a3d75d84e9e0c2f6fbce4b52, type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8753766449914581255, guid: caeb69a9a3d75d84e9e0c2f6fbce4b52, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1078,7 +1078,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 236318265832748681, guid: 3dc581b9f755b324e95e9f711705cc42, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 236318265832748681, guid: 3dc581b9f755b324e95e9f711705cc42, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1178,12 +1178,20 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3531069343875685440, guid: ba1abd47f3b149742ad3c6ac51897d58, type: 3}
+      propertyPath: onUpdateMember.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 68439232}
+    - target: {fileID: 3531069343875685440, guid: ba1abd47f3b149742ad3c6ac51897d58, type: 3}
       propertyPath: OnDestroyMember.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 68439232}
     - target: {fileID: 3531069343875685440, guid: ba1abd47f3b149742ad3c6ac51897d58, type: 3}
       propertyPath: OnDestroyMember.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3531069343875685440, guid: ba1abd47f3b149742ad3c6ac51897d58, type: 3}
+      propertyPath: onUpdateMember.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 3531069343875685441, guid: ba1abd47f3b149742ad3c6ac51897d58, type: 3}
       propertyPath: m_Name
