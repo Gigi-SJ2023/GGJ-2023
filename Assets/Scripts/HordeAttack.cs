@@ -19,6 +19,7 @@ namespace PlayerHorde
         private EnemyState state = EnemyState.Idling;
         public bool debug = false;
         public GameObject[] hittables;
+        public float range = 10f;
         public void Awake()
         {
             hittables = GameObject.FindGameObjectsWithTag(enemyTag);
@@ -31,6 +32,7 @@ namespace PlayerHorde
         private void Update()
         {
             SeekForTarget();
+            // if (state is EnemyState.Seeking or EnemyState.Attacking) 
             if (state != EnemyState.Attacking) return;
             elapsed += Time.deltaTime;
             if (!(elapsed > GetTickDuration())) return;
@@ -55,10 +57,13 @@ namespace PlayerHorde
             foreach (var hittable in hittables)
             {
                 var _targetTransform = hittable.transform;
-                if (Vector3.Distance(_targetTransform.position, transform.position) < 10f)
-                {
-                    state = EnemyState.Attacking;
-                }
+                var direction = _targetTransform.position - transform.position;
+                var distance = Vector3.Distance(_targetTransform.position, transform.position);
+                RaycastHit hit;
+                if ((distance > range)) continue;
+                if (Physics.Raycast(transform.position, direction, out hit, range, wallLayerMask)) continue;
+                state = EnemyState.Attacking;
+                _target = hittable.GetComponent<Damageable>();
             }
         }
 
@@ -73,6 +78,33 @@ namespace PlayerHorde
             var damage = GetDamage();
             if (debug) Debug.Log(String.Format("{0} attacked for {1} damage", gameObject.name, damage));
             _target?.Damage(GetDamage());
+            elapsed = 0;
+        }
+
+        // private void OnTriggerEnter(Collider other)
+        // {
+        //     if (!other.CompareTag(enemyTag)) return;
+        //     _target = other.gameObject.GetComponent<Damageable>();
+        //     _targetTransform = other.gameObject.GetComponent<Transform>();
+        //     if (_target == null) return;
+        //     StartAttack();
+        // }
+        // private void OnTriggerExit(Collider other)
+        // {
+        //     if (!other.CompareTag(enemyTag)) return;
+        //     _target = null;
+        //     StopAttack();
+        // }
+
+        private void StartAttack()
+        {
+            state = EnemyState.Attacking;
+            elapsed = 0;
+        }
+
+        private void StopAttack()
+        {
+            state = EnemyState.Idling;
             elapsed = 0;
         }
     }
