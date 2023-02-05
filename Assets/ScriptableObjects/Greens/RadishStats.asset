@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: RadishStats
   m_EditorClassIdentifier: 
   BaseDamage: 100
-  PercentageBonusPerUnit: 2
+  PercentageBonusPerUnit: 20
   TickDuration: 0.2
   GreenType: 2

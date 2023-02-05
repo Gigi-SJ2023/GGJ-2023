@@ -63,6 +63,7 @@ MonoBehaviour:
   wallLayerMask:
     serializedVersion: 2
     m_Bits: 8
+  debug: 0
   stats: {fileID: 11400000, guid: 40003a7caad36b44697247334e3f4f94, type: 2}
 --- !u!1 &4913547745088490149
 GameObject:
@@ -267,7 +268,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 786585301992755636, guid: 341710b8e817d8647bea21f3c678eabb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 786585301992755636, guid: 341710b8e817d8647bea21f3c678eabb, type: 3}
       propertyPath: m_LocalPosition.z

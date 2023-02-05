@@ -139,6 +139,7 @@ MonoBehaviour:
     m_Bits: 8
   <Followtransform>k__BackingField: {fileID: 0}
   <MinDistance>k__BackingField: 2
+  <PlayerTag>k__BackingField: Player
   <WaypointTag>k__BackingField: playerHordeWaypoint
   <PlayerHordeAreaTag>k__BackingField: playerHordeSizeContainer
   <BaseSpeed>k__BackingField: 8
@@ -164,15 +165,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 786585301992755636, guid: 341710b8e817d8647bea21f3c678eabb, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.03
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 786585301992755636, guid: 341710b8e817d8647bea21f3c678eabb, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.03
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 786585301992755636, guid: 341710b8e817d8647bea21f3c678eabb, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.03
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 786585301992755636, guid: 341710b8e817d8647bea21f3c678eabb, type: 3}
       propertyPath: m_LocalPosition.x
