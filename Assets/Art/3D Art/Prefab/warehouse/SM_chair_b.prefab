@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6253656577217065362}
   - component: {fileID: 8155320529031398744}
   m_Layer: 0
-  m_Name: SM_chair (1)
+  m_Name: SM_chair_b
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -61,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -876546973899608171, guid: 125d044050ed6a5448b28cd6777295fc, type: 3}
+  - {fileID: 2100000, guid: 90c1ece8c224c174a94005fc191c7042, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
