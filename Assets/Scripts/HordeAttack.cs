@@ -25,8 +25,9 @@ namespace PlayerHorde
             if (state is EnemyState.Seeking or EnemyState.Attacking) SeekForTarget();
             if (state != EnemyState.Attacking) return;
             elapsed += Time.deltaTime;
-            if (!(elapsed > TickDuration)) return;
+            if (!(elapsed > GetTickDuration())) return;
             elapsed = 0;
+            
             ApplyDamage();
         }
 
