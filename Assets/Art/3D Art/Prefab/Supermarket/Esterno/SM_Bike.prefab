@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4032039785814458297}
   - component: {fileID: 25743174303051804}
   - component: {fileID: 2864150885706597590}
+  - component: {fileID: 6249233563143873641}
   m_Layer: 0
   m_Name: SM_Bike
   m_TagString: Untagged
@@ -84,6 +85,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &6249233563143873641
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4377356442643342595}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.7635803, y: 0.53500366, z: 0.058741838}
+  m_Center: {x: 0.000000014901161, y: 0.2655173, z: -0.000000004656613}
 --- !u!1001 &8151268899820345485
 PrefabInstance:
   m_ObjectHideFlags: 0

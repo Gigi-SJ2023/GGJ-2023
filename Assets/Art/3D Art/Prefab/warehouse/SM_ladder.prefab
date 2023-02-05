@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 678867927813149439}
   - component: {fileID: 4522750224325303642}
   - component: {fileID: 1810726413040003472}
+  - component: {fileID: -8555628567629991445}
   m_Layer: 0
   m_Name: SM_ladder
   m_TagString: Untagged
@@ -83,3 +84,16 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &-8555628567629991445
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 153125016052238405}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.5709819, y: 1.7169362, z: 1.1871117}
+  m_Center: {x: 0, y: 0.8584679, z: 0}
