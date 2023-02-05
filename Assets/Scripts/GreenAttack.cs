@@ -12,7 +12,6 @@ namespace PlayerHorde
 
         public override int GetDamage()
         {
-            Debug.Log(stats.GetDamage());
             return stats.GetDamage();
         }
     }
