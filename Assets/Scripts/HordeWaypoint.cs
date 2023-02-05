@@ -13,6 +13,7 @@ public class HordeWaypoint : MonoBehaviour
     public float maxDistance = 0.3f;
     private Vector3 currentMoveVelocity;
     private Vector3 moveDampVelocity;
+    private float cameraAngle = 45;
 
     private void Awake()
     {
@@ -46,7 +47,7 @@ public class HordeWaypoint : MonoBehaviour
             return;
         }
 
-        var velocity = moveVector * moveSpeed * Time.deltaTime;
+        var velocity = Quaternion.AngleAxis(cameraAngle, Vector3.up) * moveVector * (moveSpeed * Time.deltaTime);
         Vector3 moveDist = (transform.localPosition + velocity);
         if (moveDist.magnitude > maxDistance)  
         {

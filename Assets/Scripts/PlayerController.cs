@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private float moveSpeed = 5f;
     private Vector2 moveInput = Vector2.zero;
+    private float cameraAngle = 45;
 
     private void Awake()
     {
@@ -19,6 +20,7 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         var velocity = new Vector3(moveInput.x, 0, moveInput.y) * (moveSpeed * Time.deltaTime);
+        velocity = Quaternion.AngleAxis(cameraAngle, Vector3.up) * velocity;
         controller.Move(velocity);
     }
 
