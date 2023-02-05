@@ -5,6 +5,7 @@ using UnityEngine.Serialization;
 public class HumanHealth: MonoBehaviour, Damageable
 {
     public HumanStats stats;
+    public GameObject humanGo;
     private int _currentHealth;
     private void Start()
     {
@@ -20,6 +21,6 @@ public class HumanHealth: MonoBehaviour, Damageable
     }
     private void Die()
     {
-        gameObject.SetActive(false);
+        humanGo.SetActive(false);
     }
 }

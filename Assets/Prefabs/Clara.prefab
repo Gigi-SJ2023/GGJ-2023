@@ -1,5 +1,65 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &766993964337705810
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2620903922088833549}
+  - component: {fileID: 1136857460807791199}
+  - component: {fileID: 658436046053850923}
+  m_Layer: 0
+  m_Name: HumanHittable
+  m_TagString: enemyHittable
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2620903922088833549
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 766993964337705810}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4913547745088490151}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1136857460807791199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 766993964337705810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a777bbd0af124f78adef4bd11d3bb4d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stats: {fileID: 11400000, guid: 40003a7caad36b44697247334e3f4f94, type: 2}
+  humanGo: {fileID: 4913547745088490149}
+--- !u!135 &658436046053850923
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 766993964337705810}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1446009436659741971
 GameObject:
   m_ObjectHideFlags: 0
@@ -63,6 +123,7 @@ MonoBehaviour:
   wallLayerMask:
     serializedVersion: 2
     m_Bits: 8
+  debug: 0
   stats: {fileID: 11400000, guid: 40003a7caad36b44697247334e3f4f94, type: 2}
 --- !u!1 &4913547745088490149
 GameObject:
@@ -76,11 +137,8 @@ GameObject:
   - component: {fileID: 369416494307899123}
   - component: {fileID: 8129773212931170832}
   - component: {fileID: 2342077609527200756}
-  - component: {fileID: 1670409430561670697}
   - component: {fileID: 1380670058223736597}
-  - component: {fileID: 1380670058223736598}
   - component: {fileID: -5455958184877519325}
-  - component: {fileID: 7751383193990122384}
   m_Layer: 0
   m_Name: Clara
   m_TagString: enemy
@@ -102,6 +160,7 @@ Transform:
   m_Children:
   - {fileID: 1889624950154540201}
   - {fileID: 8386451044509221500}
+  - {fileID: 2620903922088833549}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -159,19 +218,6 @@ MonoBehaviour:
   <PlayerTag>k__BackingField: Player
   <Followtransform>k__BackingField: {fileID: 0}
   navigation: {fileID: -5455958184877519325}
---- !u!135 &1670409430561670697
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4913547745088490149}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &1380670058223736597
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -188,19 +234,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 4
   m_CollisionDetection: 0
---- !u!135 &1380670058223736598
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4913547745088490149}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &-5455958184877519325
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -217,19 +250,6 @@ MonoBehaviour:
   <MinDistance>k__BackingField: 5
   <PlayerTag>k__BackingField: Player
   currentState: 0
---- !u!114 &7751383193990122384
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4913547745088490149}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a777bbd0af124f78adef4bd11d3bb4d5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  stats: {fileID: 11400000, guid: 40003a7caad36b44697247334e3f4f94, type: 2}
 --- !u!1001 &9117585689049781192
 PrefabInstance:
   m_ObjectHideFlags: 0

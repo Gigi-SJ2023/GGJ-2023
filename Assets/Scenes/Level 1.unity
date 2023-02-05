@@ -9852,6 +9852,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1940314090}
     m_Modifications:
+    - target: {fileID: 369416494307899123, guid: c158938bf50ebb649983884bb55ccfb1, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4913547745088490149, guid: c158938bf50ebb649983884bb55ccfb1, type: 3}
       propertyPath: m_Name
       value: Antonio (4)
@@ -9904,7 +9908,8 @@ PrefabInstance:
       propertyPath: debug
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1670409430561670697, guid: c158938bf50ebb649983884bb55ccfb1, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: c158938bf50ebb649983884bb55ccfb1, type: 3}
 --- !u!4 &299329104 stripped
 Transform:
@@ -18031,6 +18036,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1940314090}
     m_Modifications:
+    - target: {fileID: 369416494307899123, guid: c158938bf50ebb649983884bb55ccfb1, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4913547745088490149, guid: c158938bf50ebb649983884bb55ccfb1, type: 3}
       propertyPath: m_Name
       value: Antonio (2)
@@ -18083,7 +18092,8 @@ PrefabInstance:
       propertyPath: debug
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1670409430561670697, guid: c158938bf50ebb649983884bb55ccfb1, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: c158938bf50ebb649983884bb55ccfb1, type: 3}
 --- !u!4 &514139130 stripped
 Transform:
@@ -27324,9 +27334,17 @@ PrefabInstance:
       propertyPath: debug
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 957731854792128779, guid: ba1abd47f3b149742ad3c6ac51897d58, type: 3}
+      propertyPath: enemyTag
+      value: enemyHittable
+      objectReference: {fileID: 0}
     - target: {fileID: 2864420933928155207, guid: ba1abd47f3b149742ad3c6ac51897d58, type: 3}
       propertyPath: debug
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2864420933928155207, guid: ba1abd47f3b149742ad3c6ac51897d58, type: 3}
+      propertyPath: enemyTag
+      value: enemyHittable
       objectReference: {fileID: 0}
     - target: {fileID: 3531069343566142345, guid: ba1abd47f3b149742ad3c6ac51897d58, type: 3}
       propertyPath: m_LocalScale.x
@@ -27432,9 +27450,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5649934590195177122, guid: ba1abd47f3b149742ad3c6ac51897d58, type: 3}
+      propertyPath: enemyTag
+      value: enemyHittable
+      objectReference: {fileID: 0}
     - target: {fileID: 6778263927975491895, guid: ba1abd47f3b149742ad3c6ac51897d58, type: 3}
       propertyPath: debug
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6778263927975491895, guid: ba1abd47f3b149742ad3c6ac51897d58, type: 3}
+      propertyPath: enemyTag
+      value: enemyHittable
       objectReference: {fileID: 0}
     - target: {fileID: 7958234714647740134, guid: ba1abd47f3b149742ad3c6ac51897d58, type: 3}
       propertyPath: m_Enabled
@@ -29885,6 +29911,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1940314090}
     m_Modifications:
+    - target: {fileID: 369416494307899123, guid: c158938bf50ebb649983884bb55ccfb1, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4913547745088490149, guid: c158938bf50ebb649983884bb55ccfb1, type: 3}
       propertyPath: m_Name
       value: Antonio (3)
@@ -29937,7 +29967,8 @@ PrefabInstance:
       propertyPath: debug
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1670409430561670697, guid: c158938bf50ebb649983884bb55ccfb1, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: c158938bf50ebb649983884bb55ccfb1, type: 3}
 --- !u!4 &867599068 stripped
 Transform:
@@ -44938,6 +44969,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1940314090}
     m_Modifications:
+    - target: {fileID: 369416494307899123, guid: c158938bf50ebb649983884bb55ccfb1, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1670409430561670697, guid: c158938bf50ebb649983884bb55ccfb1, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4913547745088490149, guid: c158938bf50ebb649983884bb55ccfb1, type: 3}
       propertyPath: m_Name
       value: Antonio
@@ -44990,7 +45029,8 @@ PrefabInstance:
       propertyPath: debug
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1670409430561670697, guid: c158938bf50ebb649983884bb55ccfb1, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: c158938bf50ebb649983884bb55ccfb1, type: 3}
 --- !u!4 &1281394018 stripped
 Transform:
@@ -72932,6 +72972,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1940314090}
     m_Modifications:
+    - target: {fileID: 369416494307899123, guid: c158938bf50ebb649983884bb55ccfb1, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4913547745088490149, guid: c158938bf50ebb649983884bb55ccfb1, type: 3}
       propertyPath: m_Name
       value: Antonio (1)
@@ -72984,7 +73028,8 @@ PrefabInstance:
       propertyPath: debug
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1670409430561670697, guid: c158938bf50ebb649983884bb55ccfb1, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: c158938bf50ebb649983884bb55ccfb1, type: 3}
 --- !u!4 &1952096409 stripped
 Transform:
@@ -78979,6 +79024,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1940314090}
     m_Modifications:
+    - target: {fileID: 369416494307899123, guid: c158938bf50ebb649983884bb55ccfb1, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4913547745088490149, guid: c158938bf50ebb649983884bb55ccfb1, type: 3}
       propertyPath: m_Name
       value: Antonio (6)
@@ -79031,7 +79080,8 @@ PrefabInstance:
       propertyPath: debug
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1670409430561670697, guid: c158938bf50ebb649983884bb55ccfb1, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: c158938bf50ebb649983884bb55ccfb1, type: 3}
 --- !u!4 &2077185309 stripped
 Transform:
@@ -80389,6 +80439,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1940314090}
     m_Modifications:
+    - target: {fileID: 369416494307899123, guid: c158938bf50ebb649983884bb55ccfb1, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4913547745088490149, guid: c158938bf50ebb649983884bb55ccfb1, type: 3}
       propertyPath: m_Name
       value: Antonio (5)
@@ -80441,7 +80495,8 @@ PrefabInstance:
       propertyPath: debug
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1670409430561670697, guid: c158938bf50ebb649983884bb55ccfb1, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: c158938bf50ebb649983884bb55ccfb1, type: 3}
 --- !u!4 &2109481826 stripped
 Transform:

@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace PlayerHorde
 {
-    abstract public class HordeAttack: MonoBehaviour
+    public abstract class HordeAttack: MonoBehaviour
     {
         [field: SerializeField] 
         private HordeMemberType HordeType { get; set; } = HordeMemberType.Carrot;
