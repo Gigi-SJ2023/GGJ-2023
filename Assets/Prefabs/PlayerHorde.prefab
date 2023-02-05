@@ -59,7 +59,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <HordeType>k__BackingField: 3
-  enemyTag: enemy
+  enemyTag: enemyHittable
   wallLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -124,7 +124,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <HordeType>k__BackingField: 1
-  enemyTag: enemy
+  enemyTag: enemyHittable
   wallLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -189,7 +189,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <HordeType>k__BackingField: 0
-  enemyTag: enemy
+  enemyTag: enemyHittable
   wallLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -395,7 +395,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <HordeType>k__BackingField: 2
-  enemyTag: enemy
+  enemyTag: enemyHittable
   wallLayerMask:
     serializedVersion: 2
     m_Bits: 8

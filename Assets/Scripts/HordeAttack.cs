@@ -3,26 +3,34 @@ using UnityEngine;
 
 namespace PlayerHorde
 {
-    public abstract class HordeAttack: MonoBehaviour
+    public class HordeAttack: MonoBehaviour
     {
         [field: SerializeField] 
         private HordeMemberType HordeType { get; set; } = HordeMemberType.Carrot;
-        protected float TickDuration { get; set; } = 5;
         public int DamagePerUnit { get; set; } = 0;
         public int Unit { get; set; } = 1;
         [field: SerializeField] 
-        private string enemyTag = "enemy";
+        private string enemyTag = "enemyHittable";
         [SerializeField]
         private LayerMask wallLayerMask;
         private float elapsed = 0;
         private Damageable _target;
-        private Transform _targetTransform;
+        // private Transform _targetTransform;
         private EnemyState state = EnemyState.Idling;
         public bool debug = false;
+        public GameObject[] hittables;
+        public void Awake()
+        {
+            hittables = GameObject.FindGameObjectsWithTag(enemyTag);
+            if (gameObject.name == "CarrotAttack")
+            {
+                Debug.Log(hittables);
+            }
+        }
 
         private void Update()
         {
-            if (state is EnemyState.Seeking or EnemyState.Attacking) SeekForTarget();
+            SeekForTarget();
             if (state != EnemyState.Attacking) return;
             elapsed += Time.deltaTime;
             if (!(elapsed > GetTickDuration())) return;
@@ -31,7 +39,10 @@ namespace PlayerHorde
             ApplyDamage();
         }
 
-        abstract public float GetTickDuration();
+        public virtual float GetTickDuration()
+        {
+            return 0;
+        }
 
         public void UpdateAttackStats(HordeMemberType memberType, int amount)
         {
@@ -41,14 +52,14 @@ namespace PlayerHorde
 
         private void SeekForTarget()
         {
-            var direction = _targetTransform.position - transform.position;
-            RaycastHit hit;
-            if (Physics.Raycast(transform.position, direction, out hit, Mathf.Infinity, wallLayerMask))
+            foreach (var hittable in hittables)
             {
-                state = EnemyState.Seeking;
-                return;
+                var _targetTransform = hittable.transform;
+                if (Vector3.Distance(_targetTransform.position, transform.position) < 10f)
+                {
+                    state = EnemyState.Attacking;
+                }
             }
-            state = EnemyState.Attacking;
         }
 
         public virtual int GetDamage()
@@ -62,33 +73,6 @@ namespace PlayerHorde
             var damage = GetDamage();
             if (debug) Debug.Log(String.Format("{0} attacked for {1} damage", gameObject.name, damage));
             _target?.Damage(GetDamage());
-            elapsed = 0;
-        }
-
-        private void OnTriggerEnter(Collider other)
-        {
-            if (!other.CompareTag(enemyTag)) return;
-            _target = other.gameObject.GetComponent<Damageable>();
-            _targetTransform = other.gameObject.GetComponent<Transform>();
-            if (_target == null) return;
-            StartAttack();
-        }
-        private void OnTriggerExit(Collider other)
-        {
-            if (!other.CompareTag(enemyTag)) return;
-            _target = null;
-            StopAttack();
-        }
-
-        private void StartAttack()
-        {
-            state = EnemyState.Attacking;
-            elapsed = 0;
-        }
-
-        private void StopAttack()
-        {
-            state = EnemyState.Idling;
             elapsed = 0;
         }
     }

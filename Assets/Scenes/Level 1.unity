@@ -27399,11 +27399,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2864420933928155207, guid: ba1abd47f3b149742ad3c6ac51897d58, type: 3}
       propertyPath: debug
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2864420933928155207, guid: ba1abd47f3b149742ad3c6ac51897d58, type: 3}
       propertyPath: enemyTag
       value: enemyHittable
+      objectReference: {fileID: 0}
+    - target: {fileID: 3531069343456669699, guid: ba1abd47f3b149742ad3c6ac51897d58, type: 3}
+      propertyPath: m_Radius
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3531069343566142345, guid: ba1abd47f3b149742ad3c6ac51897d58, type: 3}
       propertyPath: m_LocalScale.x
@@ -29998,6 +30002,10 @@ PrefabInstance:
     - target: {fileID: 369416494307899123, guid: c158938bf50ebb649983884bb55ccfb1, type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1380670058223736597, guid: c158938bf50ebb649983884bb55ccfb1, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4913547745088490149, guid: c158938bf50ebb649983884bb55ccfb1, type: 3}
       propertyPath: m_Name
