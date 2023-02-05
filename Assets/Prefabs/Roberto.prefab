@@ -63,6 +63,7 @@ MonoBehaviour:
   wallLayerMask:
     serializedVersion: 2
     m_Bits: 8
+  debug: 0
   stats: {fileID: 11400000, guid: 41e09786bab5e764e81a1f9c4a1c739c, type: 2}
 --- !u!1 &4913547745088490149
 GameObject:
@@ -81,7 +82,7 @@ GameObject:
   - component: {fileID: 1380670058223736598}
   - component: {fileID: -5455958184877519325}
   - component: {fileID: 7751383193990122384}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Roberto
   m_TagString: enemy
   m_Icon: {fileID: 0}
@@ -267,7 +268,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 786585301992755636, guid: 341710b8e817d8647bea21f3c678eabb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.715
       objectReference: {fileID: 0}
     - target: {fileID: 786585301992755636, guid: 341710b8e817d8647bea21f3c678eabb, type: 3}
       propertyPath: m_LocalPosition.z
