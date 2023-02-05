@@ -18,7 +18,7 @@ namespace PlayerHorde
         private Damageable _target;
         private Transform _targetTransform;
         private EnemyState state = EnemyState.Idling;
-        private bool debug = false;
+        public bool debug = false;
 
         private void Update()
         {
