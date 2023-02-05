@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9617052db7e30c43b81f2bf5a01d5d3, type: 3}
   m_Name: Antonio
   m_EditorClassIdentifier: 
-  TickDuration: 2
-  Health: 1600
+  TickDuration: 1.5
+  Health: 2000
   AttackBonus: 0
   Speed: 5
   Range: 4

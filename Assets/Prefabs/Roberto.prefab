@@ -63,7 +63,9 @@ MonoBehaviour:
   wallLayerMask:
     serializedVersion: 2
     m_Bits: 8
-  debug: 0
+  debug: 1
+  hittables: []
+  range: 3
   stats: {fileID: 11400000, guid: 41e09786bab5e764e81a1f9c4a1c739c, type: 2}
 --- !u!1 &2524775425467454899
 GameObject:

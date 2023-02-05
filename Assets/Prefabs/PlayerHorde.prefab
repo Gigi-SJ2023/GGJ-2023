@@ -64,6 +64,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   debug: 0
+  hittables: []
+  range: 6
   stats: {fileID: 11400000, guid: b93cdeda3e36ce742a5a46251ecba593, type: 2}
 --- !u!1 &3128019399894018346
 GameObject:
@@ -128,7 +130,9 @@ MonoBehaviour:
   wallLayerMask:
     serializedVersion: 2
     m_Bits: 8
-  debug: 0
+  debug: 1
+  hittables: []
+  range: 3
   stats: {fileID: 11400000, guid: c1da5cfbfc9ada14588646141644ec5e, type: 2}
 --- !u!1 &3531069343456669697
 GameObject:
@@ -193,7 +197,9 @@ MonoBehaviour:
   wallLayerMask:
     serializedVersion: 2
     m_Bits: 8
-  debug: 0
+  debug: 1
+  hittables: []
+  range: 3
   stats: {fileID: 11400000, guid: 746b5fc59de8e3f459bb15695bcfff23, type: 2}
 --- !u!1 &3531069343875685441
 GameObject:
@@ -242,7 +248,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hordeMembersCount:
     m_keys: 00000000
-    m_values: 0a000000
+    m_values: 01000000
   spawnables:
   - {fileID: 11400000, guid: c82f1c894404a8f42ab11387609ea714, type: 2}
   - {fileID: 11400000, guid: 7ae3c4597d9e171469284b2545c30a2a, type: 2}
@@ -400,6 +406,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   debug: 0
+  hittables: []
+  range: 4
   stats: {fileID: 11400000, guid: 9de4ccda89bc6384bb9fb46a100a99c6, type: 2}
 --- !u!1 &4111137463368325171
 GameObject:
@@ -730,6 +738,18 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3525619779842208565, guid: 4f2bed9e9ff45484990bd0d3bb28c0a9, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3525619779842208565, guid: 4f2bed9e9ff45484990bd0d3bb28c0a9, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3525619779842208565, guid: 4f2bed9e9ff45484990bd0d3bb28c0a9, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3525619779842208565, guid: 4f2bed9e9ff45484990bd0d3bb28c0a9, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -835,6 +855,10 @@ PrefabInstance:
     - target: {fileID: 28426228335318101, guid: 10f517b35cc72e64f9347741199d35cb, type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 28426228335318107, guid: 10f517b35cc72e64f9347741199d35cb, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 28426229243672032, guid: 10f517b35cc72e64f9347741199d35cb, type: 3}
       propertyPath: player

@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9617052db7e30c43b81f2bf5a01d5d3, type: 3}
   m_Name: Clara
   m_EditorClassIdentifier: 
-  TickDuration: 2
-  Health: 4000
+  TickDuration: 1.5
+  Health: 4600
   AttackBonus: 1
   Speed: 5
   Range: 4
