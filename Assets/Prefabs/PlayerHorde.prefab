@@ -63,6 +63,7 @@ MonoBehaviour:
   wallLayerMask:
     serializedVersion: 2
     m_Bits: 8
+  debug: 0
   stats: {fileID: 11400000, guid: b93cdeda3e36ce742a5a46251ecba593, type: 2}
 --- !u!1 &3128019399894018346
 GameObject:
@@ -127,6 +128,7 @@ MonoBehaviour:
   wallLayerMask:
     serializedVersion: 2
     m_Bits: 8
+  debug: 0
   stats: {fileID: 11400000, guid: c1da5cfbfc9ada14588646141644ec5e, type: 2}
 --- !u!1 &3531069343456669697
 GameObject:
@@ -191,6 +193,7 @@ MonoBehaviour:
   wallLayerMask:
     serializedVersion: 2
     m_Bits: 8
+  debug: 0
   stats: {fileID: 11400000, guid: 746b5fc59de8e3f459bb15695bcfff23, type: 2}
 --- !u!1 &3531069343875685441
 GameObject:
@@ -396,6 +399,7 @@ MonoBehaviour:
   wallLayerMask:
     serializedVersion: 2
     m_Bits: 8
+  debug: 0
   stats: {fileID: 11400000, guid: 9de4ccda89bc6384bb9fb46a100a99c6, type: 2}
 --- !u!1 &4111137463368325171
 GameObject:
@@ -507,7 +511,7 @@ GameObject:
   - component: {fileID: 9145427990096691812}
   - component: {fileID: 6538563235921133570}
   - component: {fileID: 1825600151976992571}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Playerhittable
   m_TagString: playerhittable
   m_Icon: {fileID: 0}
