@@ -56,6 +56,7 @@ public class PlayerController : MonoBehaviour
         RotateTowardsInput();
 
         controller.Move(smoothedMoveInput);
+        transform.position = new Vector3(transform.position.x, 0, transform.position.z);
     }
 
     private void RotateTowardsInput()

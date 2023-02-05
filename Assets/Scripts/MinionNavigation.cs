@@ -100,8 +100,8 @@ public class MinionNavigation : MonoBehaviour
 
         if (!playerIsMoving && IsInHordeArea())
         {
-            _navMeshAgent.speed = BaseSpeed;
-            _navMeshAgent.acceleration = BaseAcceleration;
+            _navMeshAgent.speed = BaseSpeed / 2;
+            _navMeshAgent.acceleration = BaseAcceleration / 2;
         }
     }
 
