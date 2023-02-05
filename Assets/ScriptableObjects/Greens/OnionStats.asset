@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: OnionStats
   m_EditorClassIdentifier: 
   BaseDamage: 25
-  PercentageBonusPerUnit: 1.5
+  PercentageBonusPerUnit: 15
   TickDuration: 0.2
   GreenType: 3

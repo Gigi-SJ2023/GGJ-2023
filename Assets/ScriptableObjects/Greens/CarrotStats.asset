@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: CarrotStats
   m_EditorClassIdentifier: 
   BaseDamage: 125
-  PercentageBonusPerUnit: 5
+  PercentageBonusPerUnit: 50
   TickDuration: 0.5
   GreenType: 0

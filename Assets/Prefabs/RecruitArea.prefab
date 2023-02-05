@@ -137,4 +137,4 @@ MonoBehaviour:
   onUpdateMember:
     m_PersistentCalls:
       m_Calls: []
-  maxSpawnDistance: {x: 5, y: 5}
+  maxSpawnDistance: {x: 0.5, y: 0.5}

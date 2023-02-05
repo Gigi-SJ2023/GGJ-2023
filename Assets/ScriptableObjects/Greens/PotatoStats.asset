@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: PotatoStats
   m_EditorClassIdentifier: 
   BaseDamage: 780
-  PercentageBonusPerUnit: 8
+  PercentageBonusPerUnit: 80
   TickDuration: 2
   GreenType: 1
