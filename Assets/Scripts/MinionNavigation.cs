@@ -37,7 +37,7 @@ public class MinionNavigation : MonoBehaviour
         
         _navMeshAgent.isStopped = Vector3.Distance(transform.position, destination) <= MinDistance;
         _navMeshAgent.destination = destination;
-        _navMeshAgent.speed = (BaseSpeed / (2 / Vector3.Distance(transform.position, destination)));
-        _navMeshAgent.acceleration = (BaseAcceleration / (1.5f / Vector3.Distance(transform.position, destination)));
+        _navMeshAgent.speed = (BaseSpeed / (1.25f / Vector3.Distance(transform.position, destination)));
+        _navMeshAgent.acceleration = (BaseAcceleration / (1.25f / Vector3.Distance(transform.position, destination)));
     }
 }

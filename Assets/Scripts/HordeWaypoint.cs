@@ -5,7 +5,6 @@ using UnityEngine.InputSystem;
 
 public class HordeWaypoint : MonoBehaviour
 {
-    private CharacterController controller;
     [SerializeField]
     private float moveSpeed = 0.5f;
     private Vector2 moveInput = Vector2.zero;
@@ -13,11 +12,6 @@ public class HordeWaypoint : MonoBehaviour
     public float maxDistance = 0.3f;
     private Vector3 currentMoveVelocity;
     private Vector3 moveDampVelocity;
-
-    private void Awake()
-    {
-        controller = GetComponent<CharacterController>();
-    }
 
     private void Start() {
         transform.position = player.transform.position;

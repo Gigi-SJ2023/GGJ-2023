@@ -332,7 +332,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  maxSpawnDistance: {x: 10, y: 10}
+  maxSpawnDistance: {x: 1, y: 1}
 --- !u!1 &3597794930290424596
 GameObject:
   m_ObjectHideFlags: 0
