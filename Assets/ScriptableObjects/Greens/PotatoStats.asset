@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6622fd264fdce445805e499c858adb8, type: 3}
   m_Name: PotatoStats
   m_EditorClassIdentifier: 
-  BaseDamage: 15
+  BaseDamage: 780
   PercentageBonusPerUnit: 8
-  TickDuration: 20
+  TickDuration: 2
   GreenType: 1
