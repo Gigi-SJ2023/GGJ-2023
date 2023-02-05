@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using Random = UnityEngine.Random;
 
 public class MinionNavigation : MonoBehaviour
 {
@@ -16,10 +17,14 @@ public class MinionNavigation : MonoBehaviour
     [field: SerializeField] public float BaseAcceleration {get; set; } = 10f;
     private Transform WaypointTransform;
     private Transform PlayerTransform;
-    private CapsuleCollider playerHorde;
+    private CapsuleCollider PlayerHordeCollider;
+    private Transform PlayerHordeTransform;
+    private PlayerController playerController;
+    private bool playerIsMoving;
 
     void Start()
     {
+        playerIsMoving = false;
         var waypointGo = GameObject.FindGameObjectWithTag(WaypointTag);
         WaypointTransform = waypointGo.GetComponent<Transform>();
         var playerGo = GameObject.FindGameObjectWithTag(PlayerTag);
@@ -27,15 +32,18 @@ public class MinionNavigation : MonoBehaviour
         Followtransform = WaypointTransform;
         _navMeshAgent = GetComponent<NavMeshAgent>();
         var playerHordeArea = GameObject.FindGameObjectWithTag(PlayerHordeAreaTag);
-        playerHorde = playerHordeArea.GetComponent<CapsuleCollider>();
+        PlayerHordeCollider = playerHordeArea.GetComponent<CapsuleCollider>();
+        PlayerHordeTransform = playerHordeArea.GetComponent<Transform>();
+        playerController = playerGo.GetComponent<PlayerController>();
     }
 
-    private bool isInHordeArea()
+    private bool IsInHordeArea()
     {
-        return playerHorde.bounds.Contains(transform.position);
+        return PlayerHordeCollider.bounds.Contains(transform.position);
     }
 
     private bool IsWaypointBlocked()
+    // checks if there are walls between the player and the playerWaypoint
     {
         var direction = WaypointTransform.position - PlayerTransform.position;
         RaycastHit hit;
@@ -48,24 +56,60 @@ public class MinionNavigation : MonoBehaviour
         );
     }
 
+    private void PickRandomDestinationInHordeArea()
+    // picks a random destination inside the player horde
+    {
+        var radius = PlayerHordeCollider.bounds.size.x / 2f;
+        Vector3 randomPosition = Random.insideUnitCircle * radius;
+        randomPosition += PlayerHordeTransform.position;
+        if (NavMesh.SamplePosition(randomPosition, out NavMeshHit hit, radius, 1))
+        {
+            _navMeshAgent.destination = hit.position;
+        }
+    }
+
+    public void DecideDestination()
+    // decides whether to follow player or playerWaypoint
+    {
+        if (playerIsMoving)
+        {
+            Followtransform = WaypointTransform;
+
+            if (IsWaypointBlocked())
+            {
+                Followtransform = PlayerTransform;
+            }
+
+            _navMeshAgent.destination = Followtransform.position;
+        }
+    }
+
+    public void MoveTowardsDestination()
+    {
+        var distanceFromDestination = Vector3.Distance(transform.position, _navMeshAgent.destination);
+
+        _navMeshAgent.isStopped = distanceFromDestination <= MinDistance;
+
+        if (!playerIsMoving && _navMeshAgent.isStopped)
+        {
+            PickRandomDestinationInHordeArea();
+        }
+
+        _navMeshAgent.speed = (BaseSpeed / (1.25f / distanceFromDestination));
+        _navMeshAgent.acceleration = (BaseAcceleration / (1.25f / distanceFromDestination));
+
+        if (!playerIsMoving && IsInHordeArea())
+        {
+            _navMeshAgent.speed = BaseSpeed;
+            _navMeshAgent.acceleration = BaseAcceleration;
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {
-        if (Followtransform == null) return;
-
-        Followtransform = WaypointTransform;
-
-        if (IsWaypointBlocked())
-        {
-            Debug.Log("Waypoint blocked, using player");
-            Followtransform = PlayerTransform;
-        }
-
-        var destination = Followtransform.position;
-        
-        _navMeshAgent.isStopped = Vector3.Distance(transform.position, destination) <= MinDistance;
-        _navMeshAgent.destination = destination;
-        _navMeshAgent.speed = (BaseSpeed / (1.25f / Vector3.Distance(transform.position, destination)));
-        _navMeshAgent.acceleration = (BaseAcceleration / (1.25f / Vector3.Distance(transform.position, destination)));
+        playerIsMoving = playerController.isMoving;
+        DecideDestination();
+        MoveTowardsDestination();
     }
 }

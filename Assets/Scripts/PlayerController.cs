@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Events;
 
 public class PlayerController : MonoBehaviour
 {
@@ -13,14 +14,35 @@ public class PlayerController : MonoBehaviour
     private float cameraAngle = 45;
     private Vector3 smoothedMoveInput;
     private Vector3 currentVelocity;
+    [HideInInspector] public bool isMoving { get; private set; }
 
     private void Awake()
     {
         controller = GetComponent<CharacterController>();
     }
 
+    private void Start() {
+        isMoving = false;
+    }
+
+    private void CheckMovementChange()
+    {
+        if (Vector2.Equals(moveInput, Vector2.zero)) {
+            if (isMoving)
+            {
+                isMoving = false;
+            }
+        }
+        else if (!isMoving)
+        {
+            isMoving = true;
+        }
+    }
+
     private void Update()
     {
+        CheckMovementChange();
+
         var velocity = new Vector3(moveInput.x, 0, moveInput.y) * (moveSpeed * Time.deltaTime);
         velocity = Quaternion.AngleAxis(cameraAngle, Vector3.up) * velocity;
 
