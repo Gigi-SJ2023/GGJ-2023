@@ -61,11 +61,9 @@ public class PlayerController : MonoBehaviour
 
     private void RotateTowardsInput()
     {
-        if (moveInput != Vector2.zero)
-        {
-            var targetAngle = Mathf.Atan2(smoothedMoveInput.x, smoothedMoveInput.z) * Mathf.Rad2Deg;
-            transform.rotation = Quaternion.Euler(0, targetAngle, 0);
-        }
+        if (moveInput == Vector2.zero) return;
+        var targetAngle = Mathf.Atan2(smoothedMoveInput.x, smoothedMoveInput.z) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(0, targetAngle, 0);
     }
 
     public void OnMove(InputValue value)

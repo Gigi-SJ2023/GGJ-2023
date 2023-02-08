@@ -10,7 +10,7 @@ public enum HumanType
     Roberto
 }
 [CreateAssetMenu(fileName = "Spawn", menuName = "Humans/Stats")]
-public class HumanStats : ScriptableObject
+public class HumanStats : AttackStats
 {
     public float TickDuration;
     public int Health;
@@ -34,8 +34,13 @@ public class HumanStats : ScriptableObject
         return hordeMembersCount.Aggregate(0, (acc, item) => acc + item.Value);
     }
     
-    public int GetDamage()
+    public override int GetDamage()
     {
         return (int)Math.Floor(1 + HordeSize() * sizePercentage) + AttackBonus;
+    }
+
+    public override float GetTickDuration()
+    {
+        return TickDuration;
     }
 }

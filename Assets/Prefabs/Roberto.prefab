@@ -10,7 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1889624950154540201}
   - component: {fileID: 3693997334037591378}
-  - component: {fileID: 2310232727888195475}
+  - component: {fileID: 1990623016064559246}
+  - component: {fileID: 7573419718468403502}
   m_Layer: 0
   m_Name: Attack
   m_TagString: Untagged
@@ -46,7 +47,7 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 10
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &2310232727888195475
+--- !u!114 &1990623016064559246
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -55,18 +56,54 @@ MonoBehaviour:
   m_GameObject: {fileID: 1446009436659741971}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b2c589b92c8748b3b41743e60888a866, type: 3}
+  m_Script: {fileID: 11500000, guid: 2d358217006b4854b260e90c76da9f3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <HordeType>k__BackingField: 4
-  enemyTag: playerhittable
-  wallLayerMask:
-    serializedVersion: 2
-    m_Bits: 8
-  debug: 1
-  hittables: []
-  range: 3
-  stats: {fileID: 11400000, guid: 41e09786bab5e764e81a1f9c4a1c739c, type: 2}
+  attackStats: {fileID: 11400000, guid: 41e09786bab5e764e81a1f9c4a1c739c, type: 2}
+--- !u!114 &7573419718468403502
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1446009436659741971}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b46e1ed512eb44d6ac14bbcbf5025814, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tags:
+  - playerhittable
+  onTargetEnter:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1990623016064559246}
+        m_TargetAssemblyTypeName: Attack, Assembly-CSharp
+        m_MethodName: OnAttackRangeEnter
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onTargetExit:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1990623016064559246}
+        m_TargetAssemblyTypeName: Attack, Assembly-CSharp
+        m_MethodName: OnAttackRangeExit
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &2524775425467454899
 GameObject:
   m_ObjectHideFlags: 0
@@ -114,6 +151,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stats: {fileID: 11400000, guid: 41e09786bab5e764e81a1f9c4a1c739c, type: 2}
   humanGo: {fileID: 4913547745088490149}
+  <OnDeath>k__BackingField:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4913547745088490149}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!135 &2361959873747747335
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -213,12 +265,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71ceca66aa1c4e2993c2c3061c65aa39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentState: 0
   wallLayerMask:
     serializedVersion: 2
     m_Bits: 8
-  <PlayerTag>k__BackingField: Player
-  <Followtransform>k__BackingField: {fileID: 0}
   navigation: {fileID: -5455958184877519325}
 --- !u!54 &1380670058223736597
 Rigidbody:

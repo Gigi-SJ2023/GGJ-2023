@@ -20,7 +20,7 @@ public class HordeWaypoint : MonoBehaviour
 
     private void Update()
     {
-        Vector3 playerInput = new Vector3
+        var playerInput = new Vector3
         {
             x = Input.GetAxisRaw("Horizontal"),
             y = 0f,
@@ -32,7 +32,7 @@ public class HordeWaypoint : MonoBehaviour
             playerInput.Normalize();
         }
 
-        Vector3 moveVector = transform.TransformDirection(playerInput);
+        var moveVector = transform.TransformDirection(playerInput);
 
         if (moveVector.Equals(Vector3.zero))
         {
@@ -42,7 +42,7 @@ public class HordeWaypoint : MonoBehaviour
         }
 
         var velocity = Quaternion.AngleAxis(cameraAngle, Vector3.up) * moveVector * (moveSpeed * Time.deltaTime);
-        Vector3 moveDist = (transform.localPosition + velocity);
+        var moveDist = (transform.localPosition + velocity);
         if (moveDist.magnitude > maxDistance)  
         {
             moveDist += velocity * 3;

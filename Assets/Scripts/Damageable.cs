@@ -1,8 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+using UnityEngine.Events;
 
-public interface Damageable
+public interface IDamageable
 {
+    public UnityEvent<IDamageable> OnDeath { get; set; }
     public void Damage(int amount);
 }

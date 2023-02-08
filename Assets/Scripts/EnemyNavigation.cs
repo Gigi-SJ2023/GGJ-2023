@@ -11,7 +11,8 @@ public class EnemyNavigation : MonoBehaviour
     [field: SerializeField] public float MinDistance { get; set; } = 5f;
     [field: SerializeField] public string PlayerTag { get; set; } = "Player";
     [field: SerializeField] public EnemyState currentState = EnemyState.Seeking;
-    void Awake()
+
+    private void Awake()
     {
         var playerGo = GameObject.FindGameObjectWithTag(PlayerTag);
         Followtransform = playerGo.GetComponent<Transform>();
@@ -19,7 +20,7 @@ public class EnemyNavigation : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         if (currentState != EnemyState.Attacking) return;
         _navMeshAgent.isStopped = false;
